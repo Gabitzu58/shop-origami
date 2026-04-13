@@ -36,30 +36,42 @@
 
     /* meniul mobil */
     .meniu-principal{
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
 
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
 
-        padding: 0.5rem 1rem 1rem 1rem;
-        box-sizing: border-box;
-        background-color: var(--culoare-accent-inchis);
+    padding: 0.5rem 1rem 1rem 1rem;
+    box-sizing: border-box;
+    background-color: var(--culoare-accent-inchis);
 
-        clip-path: circle(0 at 0 0);
-        transition: clip-path 0.55s ease;
+    clip-path: circle(0% at 0 0);
+    -webkit-clip-path: circle(0% at 0 0);
 
-        z-index: 100;
-        pointer-events: none;
-    }
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        clip-path 0.55s ease,
+        -webkit-clip-path 0.55s ease,
+        opacity 0.3s ease;
+
+    z-index: 100;
+}
 
     #ch-menu:checked + .meniu-principal{
-        clip-path: circle(150% at 0 0);
-        pointer-events: auto;
-    }
+    clip-path: circle(150% at 0 0);
+    -webkit-clip-path: circle(150% at 0 0);
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
 
     .meniu-principal li{
         width: 100%;
