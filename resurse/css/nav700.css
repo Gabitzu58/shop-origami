@@ -8,7 +8,14 @@
         box-sizing: border-box;
         padding: 0.75rem 1rem;
         position: relative;
-        overflow: hidden;
+        overflow: visible;
+    }
+
+    /* scoatem animatia cercului pe mobil */
+    .meniu-principal::before,
+    nav::before{
+        display: none !important;
+        content: none !important;
     }
 
     #hamburger{
@@ -36,30 +43,8 @@
         z-index: 100;
     }
 
-    /* cercul animat */
-    .meniu-principal::before{
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 50px;
-        height: 50px;
-        background-color: var(--culoare-accent-inchis);
-        border-radius: 50%;
-        transform: scale(0);
-        transform-origin: top left;
-        transition: transform 0.55s ease;
-        z-index: -1;
-        pointer-events: none;
-    }
-
-    /* cand se deschide meniul */
     #ch-menu:checked + .meniu-principal{
         display: flex;
-    }
-
-    #ch-menu:checked + .meniu-principal::before{
-        transform: scale(40);
     }
 
     .meniu-principal li{
@@ -71,17 +56,20 @@
         display: block;
         border-radius: 0.75rem;
         overflow: visible;
-        background-color: var(--culoare-zona);
+        background-color: transparent;
     }
 
     .meniu-principal > li > a{
         display: flex;
         width: 100%;
         min-height: var(--inaltime-buton);
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
         padding: 0.75rem 1rem;
         box-sizing: border-box;
+        background-color: var(--culoare-zona);
+        border: 1px solid var(--culoare-border);
+        border-radius: 0.75rem;
     }
 
     .text-icon{
@@ -99,7 +87,7 @@
         display: none;
     }
 
-    /* submeniul inchis initial */
+    /* submeniu inchis initial */
     .meniu-principal ul{
         position: static;
         width: 100%;
@@ -150,6 +138,7 @@
         color: var(--culoare-accent-inchis);
     }
 
+    /* scoatem bara animata de desktop pe mobil */
     .meniu-principal > li::after{
         display: none;
     }
