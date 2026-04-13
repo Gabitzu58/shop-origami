@@ -38,16 +38,17 @@
             </hgroup>
         </div>
 
-        <nav>
-           <label id="hamburger" for="ch-menu">
-    <img src="resurse/imagini/Hamburger_icon_alb.png" alt="menu">
-</label>
-            <input type="checkbox" id="ch-menu">
+      <nav>
+    <label id="hamburger" for="ch-menu">
+        <img src="resurse/imagini/Hamburger_icon_alb.png" alt="menu">
+    </label>
+    <input type="checkbox" id="ch-menu">
 
-           <ul class="meniu-principal">
+    <ul class="meniu-principal">
+       <li class="are-submeniu">
+    <input type="checkbox" id="toggle-produse">
 
-   <li>
-    <a href="#produse">
+    <label for="toggle-produse" class="buton-submeniu">
         <span class="text-icon">
             <i class="fa-solid fa-box"></i>
             Produse
@@ -55,7 +56,8 @@
         <span class="imag-icon">
             <i class="fa-solid fa-box"></i>
         </span>
-    </a>
+    </label>
+
     <ul>
         <li>
             <a href="#produse">
@@ -64,16 +66,11 @@
             </a>
         </li>
         <li>
-    <a href="#magazin">
-        <span class="text-icon">
-            <i class="fa-solid fa-store"></i>
-            Magazin
-        </span>
-        <span class="imag-icon">
-            <i class="fa-solid fa-store"></i>
-        </span>
-    </a>
-</li>
+            <a href="#magazin">
+                <i class="fa-solid fa-scroll"></i>
+                Materiale
+            </a>
+        </li>
         <li>
             <a href="#galerie">
                 <i class="fa-solid fa-image"></i>
@@ -83,65 +80,103 @@
     </ul>
 </li>
 
-    <li>
-        <a href="#inregistrare" class="text-icon">Înregistrare</a>
-        <a href="#inregistrare" class="imag-icon">
-            <i class="fa-solid fa-user-plus"></i>
-        </a>
-    </li>
+        <li>
+            <a href="#inregistrare">
+                <span class="text-icon">
+                    <i class="fa-solid fa-user-plus"></i>
+                    Înregistrare
+                </span>
+                <span class="imag-icon">
+                    <i class="fa-solid fa-user-plus"></i>
+                </span>
+            </a>
+        </li>
 
-    <li>
-        <a href="#magazin" class="text-icon">Magazin</a>
-        <a href="#magazin" class="imag-icon">
-            <i class="fa-solid fa-store"></i>
-        </a>
-    </li>
+        <li>
+            <a href="#magazin">
+                <span class="text-icon">
+                    <i class="fa-solid fa-store"></i>
+                    Magazin
+                </span>
+                <span class="imag-icon">
+                    <i class="fa-solid fa-store"></i>
+                </span>
+            </a>
+        </li>
 
-    <li>
-        <a href="#evenimente" class="text-icon">Evenimente</a>
-        <a href="#evenimente" class="imag-icon">
-            <i class="fa-solid fa-calendar"></i>
-        </a>
-    </li>
+        <li>
+            <a href="#evenimente">
+                <span class="text-icon">
+                    <i class="fa-solid fa-calendar"></i>
+                    Evenimente
+                </span>
+                <span class="imag-icon">
+                    <i class="fa-solid fa-calendar"></i>
+                </span>
+            </a>
+        </li>
 
-    <li>
-        <a href="#galerie" class="text-icon">Galerie</a>
-        <a href="#galerie" class="imag-icon">
-            <i class="fa-solid fa-images"></i>
-        </a>
-    </li>
+        <li>
+            <a href="#galerie">
+                <span class="text-icon">
+                    <i class="fa-solid fa-images"></i>
+                    Galerie
+                </span>
+                <span class="imag-icon">
+                    <i class="fa-solid fa-images"></i>
+                </span>
+            </a>
+        </li>
 
-    <li>
-        <a href="#popularitate" class="text-icon">Popularitate</a>
-        <a href="#popularitate" class="imag-icon">
-            <i class="fa-solid fa-chart-line"></i>
-        </a>
-    </li>
+        <li>
+            <a href="#popularitate">
+                <span class="text-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Popularitate
+                </span>
+                <span class="imag-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </span>
+            </a>
+        </li>
 
-    <li>
-        <a href="#faq" class="text-icon">Întrebări</a>
-        <a href="#faq" class="imag-icon">
-            <i class="fa-solid fa-circle-question"></i>
-        </a>
-    </li>
+        <li>
+            <a href="#faq">
+                <span class="text-icon">
+                    <i class="fa-solid fa-circle-question"></i>
+                    Întrebări
+                </span>
+                <span class="imag-icon">
+                    <i class="fa-solid fa-circle-question"></i>
+                </span>
+            </a>
+        </li>
 
-    <li>
-        <a href="#video" class="text-icon">Video</a>
-        <a href="#video" class="imag-icon">
-            <i class="fa-solid fa-video"></i>
-        </a>
-    </li>
+        <li>
+            <a href="#video">
+                <span class="text-icon">
+                    <i class="fa-solid fa-video"></i>
+                    Video
+                </span>
+                <span class="imag-icon">
+                    <i class="fa-solid fa-video"></i>
+                </span>
+            </a>
+        </li>
 
-    <li>
-        <a href="#contact" class="text-icon">Contact</a>
-        <a href="#contact" class="imag-icon">
-            <i class="fa-solid fa-envelope"></i>
-        </a>
-    </li>
-
-</ul>
-        </nav>
-
+        <li>
+            <a href="#contact">
+                <span class="text-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                    Contact
+                </span>
+                <span class="imag-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </span>
+            </a>
+        </li>
+    </ul>
+</nav>
         
     </header>
 
