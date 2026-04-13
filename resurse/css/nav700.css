@@ -1,0 +1,156 @@
+@media screen and (max-width: 700px){
+
+    nav{
+        margin-left: calc(-1 * var(--spatiere-laterala));
+        margin-right: calc(-1 * var(--spatiere-laterala));
+        width: calc(100% + 2 * var(--spatiere-laterala));
+        border-radius: 0;
+        box-sizing: border-box;
+        padding: 0.75rem 1rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #hamburger{
+        display: block;
+        cursor: pointer;
+        margin-bottom: 0.75rem;
+        width: fit-content;
+        position: relative;
+        z-index: 101;
+    }
+
+    #hamburger img{
+        display: block;
+        width: 2.2rem;
+        height: auto;
+    }
+
+    .meniu-principal{
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 0.45rem;
+        position: relative;
+        z-index: 100;
+    }
+
+    /* cercul animat */
+    .meniu-principal::before{
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        background-color: var(--culoare-accent-inchis);
+        border-radius: 50%;
+        transform: scale(0);
+        transform-origin: top left;
+        transition: transform 0.55s ease;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    /* cand se deschide meniul */
+    #ch-menu:checked + .meniu-principal{
+        display: flex;
+    }
+
+    #ch-menu:checked + .meniu-principal::before{
+        transform: scale(40);
+    }
+
+    .meniu-principal li{
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .meniu-principal > li{
+        display: block;
+        border-radius: 0.75rem;
+        overflow: visible;
+        background-color: var(--culoare-zona);
+    }
+
+    .meniu-principal > li > a{
+        display: flex;
+        width: 100%;
+        min-height: var(--inaltime-buton);
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        box-sizing: border-box;
+    }
+
+    .text-icon{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.6rem;
+    }
+
+    .imag-icon{
+        display: none;
+    }
+
+    .meniu-principal input{
+        display: none;
+    }
+
+    /* submeniul inchis initial */
+    .meniu-principal ul{
+        position: static;
+        width: 100%;
+        margin-top: 0.25rem;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+    }
+
+    /* deschidere automata */
+    .meniu-principal li:hover > ul{
+        max-height: 16rem;
+    }
+
+    .meniu-principal ul li{
+        width: 100%;
+        border: 1px solid var(--culoare-border);
+        margin-top: 0.25rem;
+        border-radius: 0.5rem;
+        box-sizing: border-box;
+        background-color: var(--culoare-zona);
+        transition: background-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .meniu-principal ul li:hover{
+        background-color: var(--culoare-hover);
+        transform: scale(1.02);
+    }
+
+    .meniu-principal ul a{
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.75rem 1rem;
+        box-sizing: border-box;
+    }
+
+    .meniu-principal ul li:hover a{
+        color: var(--culoare-accent-inchis);
+    }
+
+    .meniu-principal > li::after{
+        display: none;
+    }
+}

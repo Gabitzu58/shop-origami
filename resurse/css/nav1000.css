@@ -1,0 +1,17 @@
+@media screen and (max-width: 1000px){
+
+    /* ascunde text */
+    .text-icon{
+        display: none;
+    }
+
+    /* afișează icon */
+    .imag-icon{
+        display: flex;
+    }
+
+    /* butoane mai mici */
+    .meniu-principal li{
+        width: 60px;
+    }
+}
