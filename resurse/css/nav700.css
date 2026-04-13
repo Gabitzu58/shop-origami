@@ -11,9 +11,10 @@
         overflow: visible;
     }
 
-    /* scoatem animatia cercului pe mobil */
+    /* oprim toate efectele urate de desktop */
+    nav::before,
     .meniu-principal::before,
-    nav::before{
+    .meniu-principal > li::after{
         display: none !important;
         content: none !important;
     }
@@ -23,8 +24,6 @@
         cursor: pointer;
         margin-bottom: 0.75rem;
         width: fit-content;
-        position: relative;
-        z-index: 101;
     }
 
     #hamburger img{
@@ -39,8 +38,6 @@
         align-items: stretch;
         width: 100%;
         gap: 0.45rem;
-        position: relative;
-        z-index: 100;
     }
 
     #ch-menu:checked + .meniu-principal{
@@ -54,40 +51,49 @@
 
     .meniu-principal > li{
         display: block;
-        border-radius: 0.75rem;
-        overflow: visible;
-        background-color: transparent;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        min-height: auto;
     }
 
-    .meniu-principal > li > a{
+    /* butoanele principale */
+    .meniu-principal > li > a,
+    .buton-submeniu{
         display: flex;
         width: 100%;
         min-height: var(--inaltime-buton);
-        justify-content: flex-start;
         align-items: center;
+        justify-content: flex-start;
         padding: 0.75rem 1rem;
         box-sizing: border-box;
         background-color: var(--culoare-zona);
         border: 1px solid var(--culoare-border);
         border-radius: 0.75rem;
+        text-decoration: none;
+        color: var(--culoare-accent-inchis);
+        font-weight: 600;
+        cursor: pointer;
     }
 
+    /* pe mobil vrem text + icon */
     .text-icon{
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: flex-start;
         gap: 0.6rem;
     }
 
     .imag-icon{
-        display: none;
+        display: none !important;
     }
 
+    /* ascundem checkboxul */
     .meniu-principal input{
         display: none;
     }
 
-    /* submeniu inchis initial */
+    /* submeniul inchis initial */
     .meniu-principal ul{
         position: static;
         width: 100%;
@@ -104,8 +110,8 @@
         transition: max-height 0.35s ease;
     }
 
-    /* deschidere automata */
-    .meniu-principal li:hover > ul{
+    /* deschidere la tap pentru Produse */
+    #toggle-produse:checked + .buton-submeniu + ul{
         max-height: 16rem;
     }
 
@@ -132,14 +138,12 @@
         gap: 0.6rem;
         padding: 0.75rem 1rem;
         box-sizing: border-box;
+        text-decoration: none;
+        color: var(--culoare-accent-inchis);
+        font-weight: 600;
     }
 
     .meniu-principal ul li:hover a{
         color: var(--culoare-accent-inchis);
-    }
-
-    /* scoatem bara animata de desktop pe mobil */
-    .meniu-principal > li::after{
-        display: none;
     }
 }
