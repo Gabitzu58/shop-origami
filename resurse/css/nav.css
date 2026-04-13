@@ -1,0 +1,188 @@
+nav{
+    --latime-buton: 110px;
+    --inaltime-buton: 40px;
+
+    position: relative;
+    background-color: var(--culoare-accent-inchis);
+    padding: 0.5rem 1rem;
+    border-radius: var(--raza);
+}
+
+/* reset */
+.meniu-principal,
+.meniu-principal ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* hamburger ascuns desktop */
+#hamburger,
+#ch-menu{
+    display: none;
+}
+
+/* MENIU PRINCIPAL */
+.meniu-principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* butoane */
+.meniu-principal li{
+    position: relative;
+    width: var(--latime-buton);
+    height: var(--inaltime-buton);
+
+    background-color: var(--culoare-zona);
+    border: 1px solid var(--culoare-border);
+    border-radius: 999px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.3s;
+}
+
+/* linkuri */
+.meniu-principal li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    text-decoration: none;
+    color: var(--culoare-accent-inchis);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* hover */
+.meniu-principal > li:hover{
+    background-color: var(--culoare-hover);
+}
+
+/* SUBMENIU */
+.meniu-principal ul{
+    display: none;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    min-width: var(--latime-buton);
+    background-color: var(--culoare-zona);
+
+    border: 1px solid var(--culoare-border);
+    border-radius: 0.8rem;
+    box-shadow: var(--umbra);
+
+    z-index: 100;
+}
+
+/* arata submenu */
+.meniu-principal li:hover > ul{
+    display: block;
+}
+
+/* item submenu */
+.meniu-principal ul li{
+    width: 100%;
+    border-radius: 0;
+    border: none;
+}
+
+/* hover submenu */
+.meniu-principal ul li:hover{
+    background-color: var(--culoare-hover);
+}
+
+/* text submenu */
+.meniu-principal ul a{
+    justify-content: flex-start;
+    padding-left: 0.75rem;
+}
+
+/* ICON + TEXT */
+.text-icon,
+.imag-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* icon */
+.imag-icon{
+    display: none;
+}
+
+.imag-icon i{
+    font-size: 1rem;
+}
+
+/* RESPONSIVE ICON ONLY */
+@media screen and (max-width: 900px){
+
+    .text-icon{
+        display: none;
+    }
+
+    .imag-icon{
+        display: flex;
+    }
+
+    .meniu-principal li{
+        width: 60px;
+    }
+}
+
+/* HAMBURGER */
+#hamburger img{
+    width: 2rem;
+}
+
+/* MOBILE MENU */
+@media screen and (max-width: 700px){
+
+    #hamburger{
+        display: block;
+        cursor: pointer;
+        margin-bottom: 0.75rem;
+    }
+
+    .meniu-principal{
+        display: none;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .meniu-principal li{
+        width: 100%;
+        border-radius: 0.75rem;
+    }
+
+    .meniu-principal ul{
+        position: static;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .meniu-principal ul li{
+        border: 1px solid var(--culoare-border);
+        margin-top: 0.25rem;
+        border-radius: 0.5rem;
+    }
+
+    #ch-menu:checked + .meniu-principal{
+        display: flex;
+    }
+}

@@ -10,9 +10,12 @@ body{
     --culoare-text: #3f3f46;
     --culoare-subtitlu: #6b7280;
     --grosime-faq:100%;
-    --padding-zona: 1.25rem;
+
+    /* AICI doar le-am uniformizat */
+    --padding-zona: 0.85rem;
     --spatiere-laterala: 7rem;
-    --gap-grid: 1.5rem;
+    --gap-grid: 1rem;
+
     --raza: 1rem;
     --umbra: 0 0.35rem 1rem rgba(0,0,0,0.10);
 
@@ -23,8 +26,10 @@ body{
     background-color: var(--culoare-fundal);
     padding-left: var(--spatiere-laterala);
     padding-right: var(--spatiere-laterala);
-}
 
+    /* era duplicat mai jos */
+    font-size: 0.95rem;
+}
 @keyframes puls {
     0% { transform: scale(1); }
     50% { transform: scale(1.25); }
@@ -43,33 +48,11 @@ body{
     color: var(--culoare-accent);
     animation: puls 1s infinite ease-in-out;
 }
-.fa-heart:hover {
+.inima:hover {
     color: red;
     transform: scale(1.2);
 }
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
 
-#hamburger{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-#hamburger img{
-    width: 2.2rem;
-    height: auto;
-}
-
-#ch-menu{
-    display: none;
-}
 .figura {
     justify-self: end;
     align-self: start;
@@ -78,11 +61,9 @@ nav{
 .grid-pagina > *{
     border: 1px solid var(--culoare-border);
     box-shadow: var(--umbra);
-    padding: var(--padding-zona);
-    border-radius: var(--raza);
-    background-color: var(--culoare-zona);
-    padding: 0.85rem;
+    padding: var(--padding-zona); /* doar asta */
     border-radius: 0.7rem;
+    background-color: var(--culoare-zona);
 }
 
 .grid-pagina{
@@ -251,74 +232,6 @@ h2,
 h3{
     margin-top: 0;
     color: var(--culoare-accent-inchis);
-}
-
-.meniu-principal{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-}
-
-.meniu-principal li{
-    position: relative;
-}
-
-.meniu-principal a{
-    display: block;
-    text-decoration: none;
-    color: var(--culoare-accent-inchis);
-    background-color: var(--culoare-zona);
-    border: 1px solid var(--culoare-border);
-    border-radius: 999px;
-    padding: 0.6rem 1rem;
-    font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
-
-.meniu-principal a:hover{
-    background-color: var(--culoare-hover);
-    color: var(--culoare-accent);
-    transform: translateY(-2px);
-}
-
-.meniu-principal li ul{
-    list-style: none;
-    margin: 0;
-    padding: 0.5rem 0;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 10rem;
-    background-color: var(--culoare-zona);
-    border: 1px solid var(--culoare-border);
-    border-radius: 0.8rem;
-    box-shadow: var(--umbra);
-    display: none;
-    z-index: 10;
-}
-
-.meniu-principal li:hover > ul{
-    display: block;
-}
-
-.meniu-principal li ul li{
-    width: 100%;
-}
-
-.meniu-principal li ul a{
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    padding: 0.65rem 1rem;
-    text-align: left;
-}
-
-.meniu-principal li ul a:hover{
-    background-color: var(--culoare-hover);
-    transform: none;
 }
 
 .container-iframe{
@@ -503,16 +416,6 @@ h3{
         display: block;
     }
 }
-/* COMPACTARE GLOBALĂ */
-body{
-    font-size: 0.95rem;
-}
-
-/* spațieri mai mici */
-:root, body{
-    --padding-zona: 0.85rem;
-    --gap-grid: 1rem;
-}
 
 /* carduri mai compacte */
 .grid-pagina > *{
@@ -533,10 +436,7 @@ h3{
 }
 
 /* meniu mai compact */
-.meniu-principal a{
-    padding: 0.45rem 0.8rem;
-    font-size: 0.85rem;
-}
+
 
 /* tabel mai compact */
 .tabel-origami th,
