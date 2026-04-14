@@ -1,31 +1,34 @@
 @media screen and (max-width: 700px){
 
-    nav{
-        margin-left: calc(-1 * var(--spatiere-laterala));
-        margin-right: calc(-1 * var(--spatiere-laterala));
-        width: calc(100% + 2 * var(--spatiere-laterala));
-        border-radius: 0;
-        box-sizing: border-box;
-        padding: 0.75rem 1rem;
-        position: relative;
-        overflow: visible;
-    }
+ nav{
+    margin-left: calc(-1 * var(--spatiere-laterala));
+    margin-right: calc(-1 * var(--spatiere-laterala));
+    width: calc(100% + 2 * var(--spatiere-laterala));
+    box-sizing: border-box;
+    padding: 0.75rem 1rem;
+    border-radius: var(--raza);
+    position: relative;
+    overflow: hidden;
 
-    /* ascundem efectele de desktop */
-    .meniu-principal > li::after,
+    background-color: var(--culoare-accent-inchis); /* 🔥 IMPORTANT */
+}
+
+    /* anulam efectele desktop */
     nav::before,
-    .meniu-principal::before{
+    .meniu-principal::before,
+    .meniu-principal > li::after{
         display: none !important;
         content: none !important;
     }
 
+    /* hamburger */
     #hamburger{
         display: block;
+        width: fit-content;
         cursor: pointer;
         margin-bottom: 0.75rem;
-        width: fit-content;
         position: relative;
-        z-index: 110;
+        z-index: 5;
     }
 
     #hamburger img{
@@ -34,44 +37,43 @@
         height: auto;
     }
 
-    /* meniul mobil */
+    /* meniul mobil - cu animatie pe tot fundalul */
     .meniu-principal{
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
 
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
+        width: calc(100% + 2rem);
+        margin-left: -1rem;
+        margin-right: -1rem;
+        box-sizing: border-box;
 
-    padding: 0.5rem 1rem 1rem 1rem;
-    box-sizing: border-box;
-    background-color: var(--culoare-accent-inchis);
+        padding: 4rem 1rem 1rem 1rem;
+        clip-path: circle(0% at 32px 32px);
+        -webkit-clip-path: circle(0% at 32px 32px);
 
-    clip-path: circle(0% at 0 0);
-    -webkit-clip-path: circle(0% at 0 0);
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
 
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+        transition:
+    clip-path 0.9s cubic-bezier(0.4, 0, 0.2, 1),
+    -webkit-clip-path 0.9s cubic-bezier(0.4, 0, 0.2, 1),
+    max-height 0.9s ease,
+    opacity 0.4s ease;
+        position: relative;
+        z-index: 2;
+    }
 
-    transition:
-        clip-path 0.55s ease,
-        -webkit-clip-path 0.55s ease,
-        opacity 0.3s ease;
-
-    z-index: 100;
-}
-
+    /* deschidere meniu principal */
     #ch-menu:checked + .meniu-principal{
-    clip-path: circle(150% at 0 0);
-    -webkit-clip-path: circle(150% at 0 0);
-
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
+        clip-path: circle(180% at 32px 32px);
+        -webkit-clip-path: circle(180% at 32px 32px);
+        max-height: 1400px;
+        opacity: 1;
+        pointer-events: auto;
+    }
 
     .meniu-principal li{
         width: 100%;
@@ -80,99 +82,120 @@
 
     .meniu-principal > li{
         display: block;
-        border-radius: 0.75rem;
-        overflow: visible;
-        background-color: transparent;
+        background: transparent;
         border: none;
+        border-radius: 0;
         min-height: auto;
     }
 
+    /* butoane principale */
     .meniu-principal > li > a,
-    .buton-submeniu
-    {
+    .buton-submeniu{
         display: flex;
-        width: 100%;
-        min-height: var(--inaltime-buton);
         align-items: center;
         justify-content: flex-start;
         gap: 0.75rem;
 
-        padding: 0.8rem 1rem;
+        width: 100%;
+        min-height: var(--inaltime-buton);
+        padding: 0.85rem 1rem;
         box-sizing: border-box;
 
         background-color: var(--culoare-zona);
         border: 1px solid var(--culoare-border);
-        border-radius: 0.75rem;
+        border-radius: 0.85rem;
 
-        text-decoration: none;
         color: var(--culoare-accent-inchis);
+        text-decoration: none;
         font-weight: 600;
+        cursor: pointer;
+
+        transition: background-color 0.25s ease;
     }
 
-    /* pe mobil vrem text + icon */
+    .meniu-principal > li > a:hover,
+    .buton-submeniu:hover{
+        background-color: var(--culoare-hover);
+    }
+
+    /* pe mobil vrem icon + text */
     .text-icon{
         display: flex !important;
         align-items: center;
         justify-content: flex-start;
         gap: 0.75rem;
+        width: 100%;
     }
 
     .imag-icon{
         display: none !important;
     }
 
-    /* submenu normal pe mobil */
+    /* ascundem checkboxurile */
+    .meniu-principal input{
+        display: none;
+    }
+
+    /* submeniul Produse */
     .meniu-principal ul{
         position: static;
         width: 100%;
-        margin-top: 0.25rem;
+        margin: 0.3rem 0 0 0;
         padding: 0;
-
+        list-style: none;
         border: none;
         box-shadow: none;
         background: transparent;
 
-        display: none;
-        clip-path: none;
-        opacity: 1;
-        transform: none;
-        pointer-events: auto;
-    }
-
-    /* submenu deschis la hover/focus */
-    .meniu-principal li:hover > ul,
-    .meniu-principal li:focus-within > ul{
         display: block;
+        max-height: 0;
+        overflow: hidden;
+
+        opacity: 0;
+        transform: translateY(-6px);
+
+        transition:
+            max-height 0.35s ease,
+            opacity 0.25s ease,
+            transform 0.25s ease;
     }
 
+    /* deschidere / inchidere la tap pe Produse */
+    #toggle-produse:checked + .buton-submeniu + ul{
+        max-height: 260px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* iteme submeniu */
     .meniu-principal ul li{
         width: 100%;
+        margin-top: 0.25rem;
         border: none;
         background: transparent;
-        margin-top: 0.25rem;
     }
 
     .meniu-principal ul a{
         display: flex;
-        width: 100%;
         align-items: center;
         justify-content: flex-start;
         gap: 0.75rem;
 
-        padding: 0.75rem 1rem;
+        width: 100%;
+        padding: 0.8rem 1rem;
         box-sizing: border-box;
 
         background-color: var(--culoare-zona);
         border: 1px solid var(--culoare-border);
-        border-radius: 0.5rem;
+        border-radius: 0.7rem;
 
-        text-decoration: none;
         color: var(--culoare-accent-inchis);
+        text-decoration: none;
         font-weight: 600;
+
+        transition: background-color 0.25s ease;
     }
 
-    /* singurul hover pe mobil: schimbare culoare background */
-    .meniu-principal > li > a:hover,
     .meniu-principal ul a:hover{
         background-color: var(--culoare-hover);
     }
