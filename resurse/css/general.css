@@ -486,7 +486,10 @@ h3{
 
 /* galerie mai mică */
 .galerie-origami img{
-    height: 180px;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
 }
 
 /* video mai mic */
