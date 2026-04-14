@@ -168,7 +168,6 @@ nav{
     }
 
     footer::after{
-        content: "Acesta este un proiect școlar!";
         display: block;
         margin-top: 1rem;
     }

@@ -87,7 +87,9 @@
         min-height: auto;
     }
 
-    .meniu-principal > li > a{
+    .meniu-principal > li > a,
+    .buton-submeniu
+    {
         display: flex;
         width: 100%;
         min-height: var(--inaltime-buton);
