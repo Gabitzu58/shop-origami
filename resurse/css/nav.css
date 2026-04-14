@@ -142,33 +142,3 @@ nav{
 #hamburger img{
     width: 2rem;
 }
-
-@media print{
-    nav{
-        display: none;
-    }
-
-    img, video, iframe{
-        display: none;
-    }
-
-    a{
-        color: black;
-        text-decoration: underline;
-    }
-
-    .grid-pagina{
-        display: block;
-    }
-
-    h1{
-        text-align: center;
-        font-size: 2.5em;
-        page-break-after: always;
-    }
-
-    footer::after{
-        display: block;
-        margin-top: 1rem;
-    }
-}

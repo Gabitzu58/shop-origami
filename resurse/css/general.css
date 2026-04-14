@@ -1,3 +1,9 @@
+#banner-print,
+#watermark,
+#absolut{
+    display: none;
+}
+
 body{
     --culoare-fundal: #fdf2f8;
     --culoare-zona: #ffffff;
@@ -9,61 +15,55 @@ body{
     --culoare-hover: #fce7f3;
     --culoare-text: #3f3f46;
     --culoare-subtitlu: #6b7280;
-    --grosime-faq:100%;
+    --grosime-faq: 100%;
 
-    /* AICI doar le-am uniformizat */
     --padding-zona: 0.85rem;
     --spatiere-laterala: 7rem;
     --gap-grid: 1rem;
-
     --raza: 1rem;
     --umbra: 0 0.35rem 1rem rgba(0,0,0,0.10);
 
     margin: 0;
-    font-family: "Poppins", sans-serif;
-    line-height: 1.6;
-    color: var(--culoare-text);
-    background-color: var(--culoare-fundal);
     padding-left: var(--spatiere-laterala);
     padding-right: var(--spatiere-laterala);
 
-    /* era duplicat mai jos */
+    font-family: "Poppins", sans-serif;
     font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--culoare-text);
+    background-color: var(--culoare-fundal);
 }
-@keyframes puls {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.25); }
-    100% { transform: scale(1); }
+
+@keyframes puls{
+    0%{transform: scale(1);}
+    50%{transform: scale(1.25);}
+    100%{transform: scale(1);}
 }
-@keyframes rotatie {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+
+@keyframes rotatie{
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
 }
 
 .morisca{
     color: var(--culoare-accent);
     animation: rotatie 2s linear infinite;
 }
+
 .inima{
     color: var(--culoare-accent);
     animation: puls 1s infinite ease-in-out;
 }
-.inima:hover {
+
+.inima:hover{
     color: red;
     transform: scale(1.2);
 }
 
-.figura {
+.figura{
     justify-self: end;
     align-self: start;
     width: 200px;
-}
-.grid-pagina > *{
-    border: 1px solid var(--culoare-border);
-    box-shadow: var(--umbra);
-    padding: var(--padding-zona); /* doar asta */
-    border-radius: 0.7rem;
-    background-color: var(--culoare-zona);
 }
 
 .grid-pagina{
@@ -78,12 +78,21 @@ body{
         "z5 z4 z4 z7";
 }
 
+.grid-pagina > *{
+    border: 1px solid var(--culoare-border);
+    box-shadow: var(--umbra);
+    padding: var(--padding-zona);
+    border-radius: 0.7rem;
+    background-color: var(--culoare-zona);
+}
+
 #produse{
     grid-area: z1;
 }
+
 .continut-produse{
     display: grid;
-    grid-template-columns:1fr 2fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     gap: 2rem;
     align-items: start;
 }
@@ -99,15 +108,7 @@ body{
     max-width: 400px;
     border-radius: var(--raza);
 }
-@media screen and (max-width: 900px){
-    .continut-produse{
-        grid-template-columns: 1fr;
-    }
 
-    .imagine-produse{
-        justify-self: start;
-    }
-}
 #magazin{
     grid-area: z2;
 }
@@ -191,8 +192,9 @@ body{
 
 #video{
     grid-area: z8;
+    overflow: hidden;
 }
-
+main,
 header,
 footer{
     border: 1px solid var(--culoare-border);
@@ -219,7 +221,7 @@ footer{
 .header-top h1{
     margin: 0;
     color: var(--culoare-accent-inchis);
-    font-size: 2.2rem;
+    font-size: 1.9rem;
 }
 
 .subtitlu-site{
@@ -234,40 +236,31 @@ h3{
     color: var(--culoare-accent-inchis);
 }
 
+h2{
+    font-size: 1.35rem;
+}
+
+h3{
+    font-size: 1.1rem;
+}
+
 .container-iframe{
     display: flex;
     gap: 1rem;
     align-items: flex-start;
+    width: 100%;
 }
 
 .taburi-iframe{
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    min-width: 12rem;
-}
-.taburi-iframe a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 3rem;
-    padding: 0.8rem 1rem;
-    text-decoration: none;
-    font-weight: 600;
-    text-align: center;
-    color: white;
-    background-color: var(--culoare-accent);
-    border: 1px solid var(--culoare-accent-inchis);
-    border-radius: 0.8rem 0 0 0.8rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.taburi-iframe a:hover{
-    background-color: var(--culoare-accent-inchis);
-    transform: translateX(0.2rem);
+    flex: 0 0 12rem; /* coloană fixă */
 }
 
 .container-iframe iframe{
+    flex: 1;              /* ocupă restul spațiului */
+    min-width: 0;         /* CRUCIAL pentru flex */
     width: 100%;
     max-width: 100%;
     height: 315px;
@@ -276,18 +269,44 @@ h3{
     box-sizing: border-box;
     display: block;
 }
+.taburi-iframe a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-align: center;
+    color: white;
+    background-color: var(--culoare-accent);
+    border: 1px solid var(--culoare-accent-inchis);
+    border-radius: 0.8rem 0 0 0.8rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+.taburi-iframe a:hover{
+    background-color: var(--culoare-accent-inchis);
+    transform: translateX(0.2rem);
+}
+
+
 .container-tabel{
     width: 100%;
     overflow-x: auto;
+    
 }
 
 .tabel-origami{
     width: 100%;
-    min-width: 700px;
+    min-width: 0;
     border-collapse: collapse;
     text-align: center;
     background-color: var(--culoare-zona);
     border: 2px solid var(--culoare-border);
+    
 }
 
 .tabel-origami caption{
@@ -299,7 +318,8 @@ h3{
 
 .tabel-origami th,
 .tabel-origami td{
-    padding: 0.75rem;
+    padding: 0.5rem;
+    font-size: 0.85rem;
     border: 1px solid var(--culoare-border);
 }
 
@@ -388,53 +408,89 @@ h3{
     opacity: 1;
 }
 
-@media screen and (max-width: 1200px){
+.galerie-origami figure{
+    text-align: center;
+}
+
+.galerie-origami img{
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 1000px) {
     body{
-        --spatiere-laterala: 4rem;
+        --spatiere-laterala: 1rem;
         --gap-grid: 1rem;
     }
 
     .grid-pagina{
-        grid-template-columns: 1fr 1fr;
+        display: grid;
+        grid-template-columns: 1fr;
         grid-template-areas:
-            "z1 z1"
-            "z2 z8"
-            "z3 z8"
-            "z6 z8"
-            "z5 z4"
-            "z5 z7";
+            "z1"
+            "z2"
+            "z3"
+            "z4"
+            "z5"
+            "z6"
+            "z8"
+            "z7";
     }
-     .container-iframe{
-        flex-direction: column;
+
+    .grid-pagina > *{
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        justify-self: stretch;
     }
+
+    #faq{
+        grid-column: auto;
+    }
+
+    .continut-produse{
+        grid-template-columns: 1fr;
+    }
+
+    .imagine-produse{
+        justify-self: center;
+        margin-right: 0;
+    }
+
+    .container-iframe{
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
 
     .taburi-iframe{
-        width: 100%;
-        min-width: 0;
-    }
-
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 0 0 12rem;
+}
     .taburi-iframe a{
-    display: block;
-    width: 100%;
-    text-align: center;
-
-    padding: 0.8rem 1rem;
-
-    background-color: var(--culoare-accent);
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-
-    border-radius: 999px; /* 🔥 asta e cheia */
-    box-sizing: border-box;
-}
-
-    .container-iframe iframe{
+        display: block;
         width: 100%;
-        height: 315px;
+        text-align: center;
+        padding: 0.8rem 1rem;
+        border-radius: 999px;
+        box-sizing: border-box;
     }
-}
 
+   .container-iframe iframe{
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    height: 315px;
+    border: 2px solid var(--culoare-border);
+    border-radius: var(--raza);
+    box-sizing: border-box;
+    display: block;
+}
+}
 @media screen and (max-width: 700px){
     body{
         --spatiere-laterala: 1rem;
@@ -444,55 +500,8 @@ h3{
     .grid-pagina{
         display: block;
     }
+
     .container-iframe iframe{
         height: 220px;
     }
-}
-
-/* carduri mai compacte */
-.grid-pagina > *{
-    padding: 0.85rem;
-}
-
-/* titluri mai mici */
-.header-top h1{
-    font-size: 1.9rem;
-}
-
-h2{
-    font-size: 1.35rem;
-}
-
-h3{
-    font-size: 1.1rem;
-}
-
-/* meniu mai compact */
-
-
-/* tabel mai compact */
-.tabel-origami th,
-.tabel-origami td{
-    padding: 0.5rem;
-    font-size: 0.85rem;
-}
-
-/* butoane video mai mici */
-.taburi-iframe a{
-    min-height: 2.5rem;
-    padding: 0.5rem;
-    font-size: 0.85rem;
-}
-
-/* galerie mai mică */
-.galerie-origami img{
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-}
-
-/* video mai mic */
-.container-iframe iframe{
-    min-height: 260px;
 }

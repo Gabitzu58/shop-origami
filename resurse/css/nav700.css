@@ -1,45 +1,42 @@
 @media screen and (max-width: 700px){
 
     nav{
-    margin-left: calc(-1 * var(--spatiere-laterala));
-    margin-right: calc(-1 * var(--spatiere-laterala));
-    width: calc(100% + 2 * var(--spatiere-laterala));
-    box-sizing: border-box;
-    padding: 0.75rem 1rem;
-    border-radius: var(--raza);
-    position: relative;
-    overflow: hidden;
-    background-color: var(--culoare-accent-inchis);
-}
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.75rem 1rem;
+        border-radius: var(--raza);
+        position: relative;
+        overflow: hidden;
+        background-color: var(--culoare-accent-inchis);
+    }
 
-nav::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: var(--raza);
-    z-index: 0;
-    background-color: var(--culoare-accent);
+    nav::before{
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--raza);
+        z-index: 0;
+        background-color: var(--culoare-accent);
 
-    clip-path: circle(0 at 28px 28px);
-    -webkit-clip-path: circle(0 at 28px 28px);
+        clip-path: circle(0 at 28px 28px);
+        -webkit-clip-path: circle(0 at 28px 28px);
 
-    transition:
-        clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-        -webkit-clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1);
-}
+        transition:
+            clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+            -webkit-clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-nav:has(#ch-menu:checked)::before{
-    clip-path: circle(160% at 28px 28px);
-    -webkit-clip-path: circle(160% at 28px 28px);
-}
-    /* anulam efectele de desktop */
+    nav:has(#ch-menu:checked)::before{
+        clip-path: circle(160% at 28px 28px);
+        -webkit-clip-path: circle(160% at 28px 28px);
+    }
+
     .meniu-principal::before,
     .meniu-principal > li::after{
         display: none !important;
         content: none !important;
     }
 
-    /* hamburger */
     #hamburger{
         display: block;
         width: fit-content;
@@ -55,38 +52,36 @@ nav:has(#ch-menu:checked)::before{
         height: auto;
     }
 
-    /* meniul mobil */
     .meniu-principal{
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0 0 1rem 0;
-    margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 0 1rem 0;
+        margin: 0;
 
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    pointer-events: none;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translateY(-10px);
 
-    transform: translateY(-10px);
+        transition:
+            max-height 0.75s ease,
+            opacity 0.3s ease 0.15s,
+            transform 0.3s ease 0.15s;
 
-    transition:
-        max-height 0.75s ease,
-        opacity 0.3s ease 0.15s,
-        transform 0.3s ease 0.15s;
+        position: relative;
+        z-index: 2;
+    }
 
-    position: relative;
-    z-index: 2;
-}
-    /* deschidere meniu principal */
-   #ch-menu:checked + .meniu-principal{
-    max-height: 1400px;
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-}
+    #ch-menu:checked + .meniu-principal{
+        max-height: 1400px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
 
     .meniu-principal li{
         width: 100%;
@@ -101,7 +96,6 @@ nav:has(#ch-menu:checked)::before{
         min-height: auto;
     }
 
-    /* butoane principale */
     .meniu-principal > li > a,
     .buton-submeniu{
         display: flex;
@@ -134,7 +128,6 @@ nav:has(#ch-menu:checked)::before{
         box-shadow: 0 4px 10px rgba(0,0,0,0.10);
     }
 
-    /* pe mobil vrem icon + text */
     .text-icon{
         display: flex !important;
         align-items: center;
@@ -147,15 +140,21 @@ nav:has(#ch-menu:checked)::before{
         display: none !important;
     }
 
-    /* ascundem checkboxurile */
     .meniu-principal input{
         display: none;
     }
 
-    /* submeniul Produse */
+    .meniu-principal li:hover > ul{
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-6px);
+        pointer-events: none;
+    }
+
     .meniu-principal ul{
         position: static;
         width: 100%;
+        min-width: 0;
         margin: 0.3rem 0 0 0;
         padding: 0;
         list-style: none;
@@ -169,6 +168,8 @@ nav:has(#ch-menu:checked)::before{
         max-height: 0;
         opacity: 0;
         transform: translateY(-6px);
+        transform-origin: initial;
+        pointer-events: none;
 
         transition:
             max-height 0.35s ease,
@@ -176,14 +177,13 @@ nav:has(#ch-menu:checked)::before{
             transform 0.25s ease;
     }
 
-    /* deschidere / inchidere la tap pe Produse */
     #toggle-produse:checked + .buton-submeniu + ul{
-        max-height: 260px;
+        max-height: 500px;
         opacity: 1;
         transform: translateY(0);
+        pointer-events: auto;
     }
 
-    /* iteme submeniu */
     .meniu-principal ul li{
         width: 100%;
         margin: 0;
@@ -191,7 +191,6 @@ nav:has(#ch-menu:checked)::before{
         background: transparent;
     }
 
-    /* linkuri submeniu */
     .meniu-principal ul a{
         display: flex;
         align-items: center;
@@ -213,17 +212,14 @@ nav:has(#ch-menu:checked)::before{
         transition: background-color 0.25s ease;
     }
 
-    /* linii intre elemente */
     .meniu-principal ul li + li a{
         border-top: 1px solid var(--culoare-border);
     }
 
-    /* hover submeniu */
     .meniu-principal ul a:hover{
         background-color: var(--culoare-hover);
     }
 
-    /* colturi doar pe primul si ultimul */
     .meniu-principal ul li:first-child a{
         border-top-left-radius: 0.7rem;
         border-top-right-radius: 0.7rem;
@@ -234,7 +230,6 @@ nav:has(#ch-menu:checked)::before{
         border-bottom-right-radius: 0.7rem;
     }
 
-    /* hamburger + meniu peste stratul animat */
     #hamburger,
     .meniu-principal{
         position: relative;

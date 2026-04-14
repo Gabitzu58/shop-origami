@@ -1,0 +1,187 @@
+#banner-print,
+#watermark,
+#absolut{
+    display: none;
+}
+
+@media print{
+
+    @page{
+        size: A4 portrait;
+        margin-top: 2cm;
+        margin-bottom: 2cm;
+    }
+
+    @page:left{
+        margin-left: 2.5cm;
+        margin-right: 0.5cm;
+    }
+
+    @page:right{
+        margin-left: 0.5cm;
+        margin-right: 2.5cm;
+    }
+
+    html,
+    body{
+        width: 210mm;
+        overflow: visible !important;
+        background: white !important;
+        color: black !important;
+    }
+
+    body{
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 12pt;
+    }
+
+    /* banner prima pagina */
+    #banner-print{
+        display: block;
+        width: 80%;
+        margin: 0 auto 1cm auto;
+        padding: 0.3cm;
+        text-align: center;
+        border: 2px dotted black;
+        font-weight: bold;
+        background: white;
+    }
+
+    /* watermark pe fiecare pagina */
+    #watermark{
+        display: block;
+        position: fixed;
+        bottom: 0.5cm;
+        right: 0;
+        width: 100px;
+        height: 2cm;
+        opacity: 0.65;
+        z-index: 9999;
+    }
+
+    #watermark::after{
+        content: "Petre Gabriel";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 2cm;
+        border: 3px double black;
+        background: white;
+        font-size: 10pt;
+        box-sizing: border-box;
+    }
+
+    /* element absolut pentru pagina 2 */
+    #absolut{
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        overflow: visible;
+    }
+
+    #absolut::after{
+        content: "Acesta este un proiect școlar!";
+        position: absolute;
+        right: 0;
+        font-size: 10px;
+        border: 5px double black;
+        width: 200px;
+        height: 35px;
+        display: inline-block;
+        background: white;
+        box-sizing: border-box;
+        padding: 4px;
+    }
+
+    /* ascundem meniu, media si elemente dependente */
+    nav,
+    img,
+    picture,
+    figure,
+    figcaption,
+    video,
+    iframe,
+    .container-iframe,
+    .taburi-iframe,
+    .galerie-origami,
+    .imagine-produse,
+    #link-top{
+        display: none !important;
+    }
+
+    /* linkuri normale */
+    a,
+    a:visited{
+        color: black !important;
+        text-decoration: none !important;
+    }
+
+    /* h1 pe prima pagina */
+    h1{
+        page-break-after: always;
+        margin-top: 40vh;
+        text-align: center;
+        font-size: 2.5em !important;
+        text-decoration: underline;
+    }
+
+    /* subtitlu sub h1 */
+    .subtitlu-site{
+        text-align: center;
+        margin-bottom: 2cm;
+    }
+
+    /* dupa header pagina noua */
+    header{
+        page-break-after: always;
+        border: none !important;
+        box-shadow: none !important;
+        background: white !important;
+    }
+
+    /* gridul devine block */
+    .grid-pagina,
+    main{
+        display: block !important;
+        background: white !important;
+    }
+
+    .grid-pagina > *{
+        display: block !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: white !important;
+        padding: 0 !important;
+        margin-bottom: 1cm;
+        break-inside: avoid;
+    }
+
+    /* inainte de footer page break */
+    footer{
+        page-break-before: always;
+        border: none !important;
+        box-shadow: none !important;
+        background: white !important;
+        position: relative;
+    }
+
+    /* fara decoratiuni */
+    *{
+        box-shadow: none !important;
+        text-shadow: none !important;
+        background-image: none !important;
+        filter: none !important;
+    }
+
+    section,
+    article,
+    aside,
+    div{
+        border: none !important;
+    }
+}
