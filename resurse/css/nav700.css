@@ -1,20 +1,42 @@
 @media screen and (max-width: 700px){
 
- nav{
-    margin-left: calc(-1 * var(--spatiere-laterala));
-    margin-right: calc(-1 * var(--spatiere-laterala));
-    width: calc(100% + 2 * var(--spatiere-laterala));
-    box-sizing: border-box;
-    padding: 0.75rem 1rem;
-    border-radius: var(--raza);
-    position: relative;
-    overflow: hidden;
+    nav{
+        margin-left: calc(-1 * var(--spatiere-laterala));
+        margin-right: calc(-1 * var(--spatiere-laterala));
+        width: calc(100% + 2 * var(--spatiere-laterala));
+        box-sizing: border-box;
+        padding: 0.75rem 1rem;
+        border-radius: var(--raza);
+        position: relative;
+        overflow: hidden;
+        background-color: var(--culoare-accent-inchis);
+    }
 
-    background-color: var(--culoare-accent-inchis); /* 🔥 IMPORTANT */
-}
+    /* cercul / semicercul animat peste tot panoul */
+    nav::before{
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--raza);
+        z-index: 0;
 
-    /* anulam efectele desktop */
-    nav::before,
+        background-color: var(--culoare-accent);
+
+        clip-path: circle(0% at 32px 32px);
+        -webkit-clip-path: circle(0% at 32px 32px);
+
+        transition:
+            clip-path 0.9s cubic-bezier(0.4, 0, 0.2, 1),
+            -webkit-clip-path 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* cand se deschide hamburgerul */
+    nav:has(#ch-menu:checked)::before{
+        clip-path: circle(180% at 32px 32px);
+        -webkit-clip-path: circle(180% at 32px 32px);
+    }
+
+    /* anulam efectele de desktop */
     .meniu-principal::before,
     .meniu-principal > li::after{
         display: none !important;
@@ -28,7 +50,7 @@
         cursor: pointer;
         margin-bottom: 0.75rem;
         position: relative;
-        z-index: 5;
+        z-index: 3;
     }
 
     #hamburger img{
@@ -37,20 +59,16 @@
         height: auto;
     }
 
-    /* meniul mobil - cu animatie pe tot fundalul */
+    /* meniul mobil */
     .meniu-principal{
         display: flex;
         flex-direction: column;
         gap: 0.45rem;
 
-        width: calc(100% + 2rem);
-        margin-left: -1rem;
-        margin-right: -1rem;
+        width: 100%;
         box-sizing: border-box;
-
-        padding: 4rem 1rem 1rem 1rem;
-        clip-path: circle(0% at 32px 32px);
-        -webkit-clip-path: circle(0% at 32px 32px);
+        padding: 0 0 1rem 0;
+        margin: 0;
 
         max-height: 0;
         opacity: 0;
@@ -58,18 +76,15 @@
         pointer-events: none;
 
         transition:
-    clip-path 0.9s cubic-bezier(0.4, 0, 0.2, 1),
-    -webkit-clip-path 0.9s cubic-bezier(0.4, 0, 0.2, 1),
-    max-height 0.9s ease,
-    opacity 0.4s ease;
+            max-height 0.9s ease,
+            opacity 0.4s ease;
+
         position: relative;
         z-index: 2;
     }
 
     /* deschidere meniu principal */
     #ch-menu:checked + .meniu-principal{
-        clip-path: circle(180% at 32px 32px);
-        -webkit-clip-path: circle(180% at 32px 32px);
         max-height: 1400px;
         opacity: 1;
         pointer-events: auto;
@@ -110,12 +125,15 @@
         font-weight: 600;
         cursor: pointer;
 
-        transition: background-color 0.25s ease;
+        transition:
+            background-color 0.25s ease,
+            box-shadow 0.25s ease;
     }
 
     .meniu-principal > li > a:hover,
     .buton-submeniu:hover{
         background-color: var(--culoare-hover);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.10);
     }
 
     /* pe mobil vrem icon + text */
@@ -145,12 +163,12 @@
         list-style: none;
         border: none;
         box-shadow: none;
-        background: transparent;
+        background-color: var(--culoare-zona);
+        border-radius: 0.7rem;
+        overflow: hidden;
 
         display: block;
         max-height: 0;
-        overflow: hidden;
-
         opacity: 0;
         transform: translateY(-6px);
 
@@ -170,11 +188,12 @@
     /* iteme submeniu */
     .meniu-principal ul li{
         width: 100%;
-        margin-top: 0.25rem;
+        margin: 0;
         border: none;
         background: transparent;
     }
 
+    /* linkuri submeniu */
     .meniu-principal ul a{
         display: flex;
         align-items: center;
@@ -185,9 +204,9 @@
         padding: 0.8rem 1rem;
         box-sizing: border-box;
 
-        background-color: var(--culoare-zona);
-        border: 1px solid var(--culoare-border);
-        border-radius: 0.7rem;
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
 
         color: var(--culoare-accent-inchis);
         text-decoration: none;
@@ -196,7 +215,31 @@
         transition: background-color 0.25s ease;
     }
 
+    /* linii intre elemente */
+    .meniu-principal ul li + li a{
+        border-top: 1px solid var(--culoare-border);
+    }
+
+    /* hover submeniu */
     .meniu-principal ul a:hover{
         background-color: var(--culoare-hover);
+    }
+
+    /* colturi doar pe primul si ultimul */
+    .meniu-principal ul li:first-child a{
+        border-top-left-radius: 0.7rem;
+        border-top-right-radius: 0.7rem;
+    }
+
+    .meniu-principal ul li:last-child a{
+        border-bottom-left-radius: 0.7rem;
+        border-bottom-right-radius: 0.7rem;
+    }
+
+    /* hamburger + meniu peste stratul animat */
+    #hamburger,
+    .meniu-principal{
+        position: relative;
+        z-index: 2;
     }
 }
