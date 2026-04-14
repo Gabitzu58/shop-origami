@@ -1,41 +1,37 @@
 @media screen and (max-width: 700px){
 
     nav{
-        margin-left: calc(-1 * var(--spatiere-laterala));
-        margin-right: calc(-1 * var(--spatiere-laterala));
-        width: calc(100% + 2 * var(--spatiere-laterala));
-        box-sizing: border-box;
-        padding: 0.75rem 1rem;
-        border-radius: var(--raza);
-        position: relative;
-        overflow: hidden;
-        background-color: var(--culoare-accent-inchis);
-    }
+    margin-left: calc(-1 * var(--spatiere-laterala));
+    margin-right: calc(-1 * var(--spatiere-laterala));
+    width: calc(100% + 2 * var(--spatiere-laterala));
+    box-sizing: border-box;
+    padding: 0.75rem 1rem;
+    border-radius: var(--raza);
+    position: relative;
+    overflow: hidden;
+    background-color: var(--culoare-accent-inchis);
+}
 
-    /* cercul / semicercul animat peste tot panoul */
-    nav::before{
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: var(--raza);
-        z-index: 0;
+nav::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--raza);
+    z-index: 0;
+    background-color: var(--culoare-accent);
 
-        background-color: var(--culoare-accent);
+    clip-path: circle(0 at 28px 28px);
+    -webkit-clip-path: circle(0 at 28px 28px);
 
-        clip-path: circle(0% at 32px 32px);
-        -webkit-clip-path: circle(0% at 32px 32px);
+    transition:
+        clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        -webkit-clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-        transition:
-            clip-path 0.9s cubic-bezier(0.4, 0, 0.2, 1),
-            -webkit-clip-path 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* cand se deschide hamburgerul */
-    nav:has(#ch-menu:checked)::before{
-        clip-path: circle(180% at 32px 32px);
-        -webkit-clip-path: circle(180% at 32px 32px);
-    }
-
+nav:has(#ch-menu:checked)::before{
+    clip-path: circle(160% at 28px 28px);
+    -webkit-clip-path: circle(160% at 28px 28px);
+}
     /* anulam efectele de desktop */
     .meniu-principal::before,
     .meniu-principal > li::after{
@@ -61,34 +57,36 @@
 
     /* meniul mobil */
     .meniu-principal{
-        display: flex;
-        flex-direction: column;
-        gap: 0.45rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0 1rem 0;
+    margin: 0;
 
-        width: 100%;
-        box-sizing: border-box;
-        padding: 0 0 1rem 0;
-        margin: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
 
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        pointer-events: none;
+    transform: translateY(-10px);
 
-        transition:
-            max-height 0.9s ease,
-            opacity 0.4s ease;
+    transition:
+        max-height 0.75s ease,
+        opacity 0.3s ease 0.15s,
+        transform 0.3s ease 0.15s;
 
-        position: relative;
-        z-index: 2;
-    }
-
+    position: relative;
+    z-index: 2;
+}
     /* deschidere meniu principal */
-    #ch-menu:checked + .meniu-principal{
-        max-height: 1400px;
-        opacity: 1;
-        pointer-events: auto;
-    }
+   #ch-menu:checked + .meniu-principal{
+    max-height: 1400px;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
 
     .meniu-principal li{
         width: 100%;
