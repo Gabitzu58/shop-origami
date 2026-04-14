@@ -235,4 +235,13 @@
         position: relative;
         z-index: 2;
     }
+    .are-submeniu ul a{
+        font-size: 1rem;        /* readuce textul */
+        justify-content: flex-start;
+        padding-left: 1rem;
+    }
+
+    .are-submeniu ul a i{
+        font-size: 1rem;
+    }
 }
