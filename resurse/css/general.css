@@ -460,31 +460,35 @@ h3{
     }
 
     .container-iframe{
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-}
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
 
     .taburi-iframe{
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    flex: 0 0 12rem;
-}
-    .taburi-iframe a{
-        display: block;
         width: 100%;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .taburi-iframe a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 3rem;
+        padding: 0.9rem 1rem;
         text-align: center;
-        padding: 0.8rem 1rem;
         border-radius: 999px;
         box-sizing: border-box;
     }
 
    .container-iframe iframe{
-    flex: 1;
-    min-width: 0;
-    width: auto;
-    height: 315px;
+    width: 100%;
+    aspect-ratio: 1 / 1;   /* 🔥 asta îl face pătrat */
     border: 2px solid var(--culoare-border);
     border-radius: var(--raza);
     box-sizing: border-box;
@@ -501,7 +505,27 @@ h3{
         display: block;
     }
 
+    
+    .container-iframe{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .taburi-iframe{
+        width: 100%;
+        min-width: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
     .container-iframe iframe{
+        width: 100%;
         height: 220px;
+        display: block;
+        box-sizing: border-box;
+        aspect-ratio: 1/1;
     }
 }
