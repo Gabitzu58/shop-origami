@@ -23,7 +23,7 @@
 
 nav {
   position: relative;
-  background-color: var(--culoare-accent-inchis);
+  background: linear-gradient(135deg, var(--culoare-accent), var(--culoare-accent-inchis));
   padding: 0.5rem 1rem;
   border-radius: var(--raza);
 }
@@ -40,6 +40,7 @@ nav {
 .meniu-principal {
   gap: 0.5rem;
 }
+
 .meniu-principal > li {
   position: relative;
   width: 110px;
@@ -52,9 +53,11 @@ nav {
   justify-content: center;
   transition: background-color 0.3s ease;
 }
+
 .meniu-principal > li:hover {
   background-color: var(--culoare-hover);
 }
+
 .meniu-principal > li::after {
   content: "";
   position: absolute;
@@ -67,17 +70,21 @@ nav {
   transform-origin: left;
   transition: transform 0.3s ease;
 }
+
 .meniu-principal > li:hover::after {
   transform: scaleX(1);
 }
+
 .meniu-principal li a {
   flex-direction: column;
 }
+
 .meniu-principal li:hover > ul {
   transform: scale(1);
   opacity: 1;
   pointer-events: auto;
 }
+
 .meniu-principal ul {
   position: absolute;
   top: 100%;
@@ -94,14 +101,17 @@ nav {
   z-index: 100;
   pointer-events: none;
 }
+
 .meniu-principal ul li {
   width: 100%;
   border-radius: 0;
   border: none;
 }
+
 .meniu-principal ul li:hover {
   background-color: var(--culoare-hover);
 }
+
 .meniu-principal ul a {
   justify-content: flex-start;
   padding-left: 0.75rem;
@@ -110,6 +120,7 @@ nav {
 .imag-icon {
   display: none;
 }
+
 .imag-icon i {
   font-size: 1rem;
 }
@@ -117,6 +128,7 @@ nav {
 #hamburger {
   padding: 0.3rem;
 }
+
 #hamburger img {
   width: 2rem;
 }
@@ -160,3 +172,4 @@ nav {
 .meniu-principal > li:nth-child(10) {
   transition-delay: 0.3s;
 }
+
