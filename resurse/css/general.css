@@ -33,7 +33,50 @@ body{
     color: var(--culoare-text);
     background-color: var(--culoare-fundal);
 }
+a:visited{
+    color: #7a1f5c;
+}
+main a[href^="http"]{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2em;
+    white-space: nowrap;
+}
 
+main a[href^="http"]::before{
+    content: "↗";
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+main a[href^="http"]:hover::before{
+    color: var(--culoare-accent);
+}
+main a {
+    position: relative;
+    text-decoration: none;
+    color: var(--culoare-accent-inchis);
+
+    background-image: radial-gradient(
+        ellipse at center,
+        rgba(255, 0, 100, 0.4) 0%,
+        rgba(255, 0, 100, 0.4) 40%,
+        transparent 80%,
+        transparent 100%
+    );
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 0% 0%;
+
+   transition: background-size 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+main a:hover {
+    background-size: 100% 80%;
+}
+main a:active{
+    border: 2px solid var(--culoare-accent);
+}
 @keyframes puls{
     0%{transform: scale(1);}
     50%{transform: scale(1.25);}
@@ -418,7 +461,41 @@ h3{
     max-width: 100%;
     height: auto;
 }
+.video-vtt-box{
+    margin-top: 2rem;
+    width: 100%;
+    text-align: center;
+}
 
+.video-vtt-box h3{
+    margin-bottom: 1rem;
+    color: var(--culoare-accent-inchis);
+}
+
+.video-vtt-box video{
+    width: 80%;
+    min-width: 280px;
+    max-width: 900px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 2px solid var(--culoare-border);
+    border-radius: var(--raza);
+    box-shadow: var(--umbra);
+    background-color: black;
+}
+
+video::cue{
+    background: rgba(157, 23, 77, 0.85);
+    color: white;
+    font-size: 1rem;
+    text-align: left;
+}
+
+video::cue(b){
+    color: white;
+    font-weight: bold;
+}
 @media screen and (max-width: 1000px) {
     body{
         --spatiere-laterala: 1rem;
@@ -527,5 +604,9 @@ h3{
         display: block;
         box-sizing: border-box;
         aspect-ratio: 1/1;
+    }
+     .video-vtt-box video{
+        width: 100%;
+        min-width: 0;
     }
 }

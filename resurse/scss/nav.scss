@@ -1,0 +1,158 @@
+$latime-buton: 110px;
+$inaltime-buton: 40px;
+
+%reset-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+%flex-centru {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%buton-meniu {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: var(--culoare-accent-inchis);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+nav {
+  position: relative;
+  background-color: var(--culoare-accent-inchis);
+  padding: 0.5rem 1rem;
+  border-radius: var(--raza);
+}
+
+.meniu-principal,
+.meniu-principal ul {
+  @extend %reset-lista;
+}
+
+.meniu-principal input {
+  display: none;
+}
+
+#hamburger,
+#ch-menu {
+  display: none;
+}
+
+.meniu-principal {
+  @extend %flex-centru;
+  gap: 0.5rem;
+
+  > li {
+    position: relative;
+    width: $latime-buton;
+    min-height: $inaltime-buton;
+    background-color: var(--culoare-zona);
+    border: 1px solid var(--culoare-border);
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: var(--culoare-hover);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(to right, black, white, black);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  li {
+    a {
+      @extend %flex-centru;
+      flex-direction: column;
+      @extend %buton-meniu;
+    }
+
+    &:hover > ul {
+      transform: scale(1);
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 100%;
+    background-color: var(--culoare-zona);
+    border: 1px solid var(--culoare-border);
+    border-radius: 0.8rem;
+    box-shadow: var(--umbra);
+    transform: scale(0);
+    transform-origin: top center;
+    opacity: 0;
+    transition: 0.3s ease;
+    z-index: 100;
+    pointer-events: none;
+
+    li {
+      width: 100%;
+      border-radius: 0;
+      border: none;
+
+      &:hover {
+        background-color: var(--culoare-hover);
+      }
+    }
+
+    a {
+      justify-content: flex-start;
+      padding-left: 0.75rem;
+    }
+  }
+}
+
+.text-icon,
+.imag-icon {
+  @extend %flex-centru;
+}
+
+.imag-icon {
+  display: none;
+
+  i {
+    font-size: 1rem;
+  }
+}
+
+#hamburger {
+  padding: 0.3rem;
+
+  img {
+    width: 2rem;
+  }
+}
+
+@for $i from 1 through 10 {
+  .meniu-principal > li:nth-child(#{$i}) {
+    transition-delay: $i * 0.03s;
+  }
+}

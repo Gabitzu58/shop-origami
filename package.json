@@ -1,0 +1,38 @@
+{
+  "name": "origami",
+  "version": "1.0.0",
+  "description": "origami online",
+  "keywords": [
+    "modele",
+    "precizie",
+    "Shop",
+    "Origami",
+    "instrumente",
+    "inima",
+    "dragoni",
+    "hartie",
+    "pasari",
+    "produse",
+    "origami"
+  ],
+  "homepage": "https://github.com/Gabitzu58/shop-origami#readme",
+  "bugs": {
+    "url": "https://github.com/Gabitzu58/shop-origami/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabitzu58/shop-origami.git"
+  },
+  "license": "ISC",
+  "author": "Petre Ioan Gabriel",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^5.0.2",
+    "express": "^5.2.1",
+    "sass": "^1.99.0"
+  }
+}

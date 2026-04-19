@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>Shop Origami - Despre</title>
+
+    <meta name="description" content="Descoperă povestea Shop Origami, pasiunea pentru arta plierii hârtiei și valorile noastre.">
+    <meta name="keywords" content="despre origami, shop origami, figurine, hartie, pasiune, handmade, arta origami">
+
+    <%- include('../fragmente/head.ejs') %>
+</head>
+<body>
+    <a id="link-top" href="#top" aria-label="Înapoi la începutul paginii">
+        <span id="triunghi"></span>
+    </a>
+
+    <%- include('../fragmente/header.ejs') %>
+
+    <main class="pagina-despre">
+
+        <!-- HERO -->
+        <section class="hero-despre">
+            <h2>Despre Shop Origami</h2>
+            <p class="subtitlu-sectiune">
+                Pasiune pentru detalii, răbdare și creativitate
+            </p>
+        </section>
+
+        <!-- POVESTE -->
+        <section class="despre-poveste">
+            <h3>Povestea noastră</h3>
+            <p>
+                Shop Origami a apărut din dorința de a transforma simple foi de hârtie
+                în opere de artă. Fiecare produs reflectă atenția la detalii și dragostea
+                pentru această artă japoneză.
+            </p>
+            <p>
+                Ne dorim să aducem mai aproape de tine lumea origamiului, fie că ești
+                începător sau pasionat.
+            </p>
+        </section>
+
+        <!-- VALORI -->
+        <section class="despre-valori">
+            <h3>Valorile noastre</h3>
+
+            <div class="carduri-valori">
+
+                <div class="card-valoare">
+                    <i class="fa-solid fa-heart"></i>
+                    <h4>Pasiune</h4>
+                    <p>Fiecare model este realizat cu grijă și dedicare.</p>
+                </div>
+
+                <div class="card-valoare">
+                    <i class="fa-solid fa-gem"></i>
+                    <h4>Calitate</h4>
+                    <p>Folosim doar materiale de cea mai bună calitate.</p>
+                </div>
+
+                <div class="card-valoare">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h4>Creativitate</h4>
+                    <p>Încurajăm ideile noi și designurile unice.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- IMAGINE -->
+        <section class="despre-imagine">
+            <figure>
+                <picture>
+    <source srcset="/resurse/imagini/origami1-mic.png" media="(max-width: 700px)">
+    <source srcset="/resurse/imagini/origami1-mic.png" media="(max-width: 1000px)">
+    <img src="/resurse/imagini/origami1-mare.png" alt="Origami decorativ">
+</picture>
+                <figcaption>Origami - artă și precizie</figcaption>
+            </figure>
+        </section>
+
+    </main>
+
+    <%- include('../fragmente/footer.ejs') %>
+
+    <p id="banner-print">Acesta este un proiect școlar!</p>
+    <div id="watermark"></div>
+    <div id="absolut"></div>
+
+</body>
+</html>

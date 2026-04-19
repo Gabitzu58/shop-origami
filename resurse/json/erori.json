@@ -1,0 +1,52 @@
+{
+  "cale_baza": "/resurse/imagini/erori/",
+  "eroare_default": {
+    "titlu": "Eroare",
+    "text": "A apărut o eroare în Shop Origami.",
+    "imagine": "interzis.png"
+  },
+  "info_erori": [
+    {
+      "identificator": 404,
+      "status": true,
+      "titlu": "404 - Pagina nu a fost găsită",
+      "text": "Pagina pe care o cauți nu există în Shop Origami.",
+      "imagine": "404.png"
+    },
+    {
+      "identificator": 403,
+      "status": true,
+      "titlu": "403 - Acces interzis",
+      "text": "Nu ai permisiunea să accesezi această resursă.",
+      "imagine": "403.png"
+    },
+    {
+      "identificator": 400,
+      "status": true,
+      "titlu": "400 - Cerere greșită",
+      "text": "Browserul a trimis o cerere invalidă.",
+      "imagine": "400.png"
+    },
+    {
+      "identificator": 1,
+      "status": false,
+      "titlu": "Site în lucru",
+      "text": "Lucrăm la noi modele și funcționalități pentru Shop Origami.",
+      "imagine": "interzis.png"
+    },
+    {
+      "identificator": 2,
+      "status": false,
+      "titlu": "Eroare bază de date",
+      "text": "A apărut o problemă internă. Te rugăm să revii mai târziu.",
+      "imagine": "interzis.png"
+    },
+    {
+      "identificator": 3,
+      "status": false,
+      "titlu": "Date greșite",
+      "text": "Verifică datele introduse și încearcă din nou.",
+      "imagine": "interzis.png"
+    }
+  ]
+}

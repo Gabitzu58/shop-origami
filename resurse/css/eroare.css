@@ -1,0 +1,80 @@
+.pagina-eroare,
+main {
+    padding: 1rem;
+}
+
+#err-coloane{
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    align-items: center;
+
+    border: 1px solid var(--culoare-border);
+    box-shadow: var(--umbra);
+    border-radius: var(--raza);
+    background-color: var(--culoare-zona);
+    padding: 1.5rem;
+}
+
+#err-imag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#err-imag img{
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    display: block;
+}
+
+#err-coloane section h2{
+    margin-top: 0;
+    color: var(--culoare-accent-inchis);
+}
+
+#err-coloane section p{
+    margin-bottom: 1rem;
+}
+
+#err-coloane section a{
+    display: inline-block;
+    padding: 0.65rem 1rem;
+    border-radius: 999px;
+    background-color: var(--culoare-accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+#err-coloane section a:hover{
+    background-color: var(--culoare-accent-inchis);
+    transform: translateY(-2px);
+}
+@media screen and (max-width: 1000px){
+    #err-coloane{
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    #err-imag img{
+        max-width: 220px;
+    }
+}
+
+@media screen and (max-width: 700px){
+    #err-coloane{
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    #err-imag img{
+        max-width: 180px;
+    }
+
+    #err-coloane section h2{
+        font-size: 1.5rem;
+    }
+}

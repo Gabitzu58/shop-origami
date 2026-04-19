@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>Shop Origami - eroare</title>
+    <meta name="description" content="Shop Origami oferă figurine, hârtie și materiale pentru pasionații de origami.">
+    <meta name="keywords" content="origami, shop origami, figurine, hârtie, materiale, modele, produse">
+
+    <link rel="stylesheet" href="/resurse/css/eroare.css">
+    <%- include("../fragmente/head.ejs") %>
+</head>
+<body>
+    <%- include("../fragmente/header.ejs") %>
+
+  <main>
+        <div id="err-coloane">
+			<div id="err-imag">
+				<img src="<%- locals.imagine %>" />
+			</div>
+			<section>
+				<h2><%- locals.titlu %></h2>
+				<p><%- locals.text %></p>
+                <p><a href="/">Înapoi la pagina principală</a></p>
+			</section>
+		</div>
+    </main>
+    <section>
+
+    
+</section>
+    <%- include("../fragmente/footer.ejs") %>
+</body>
+</html>

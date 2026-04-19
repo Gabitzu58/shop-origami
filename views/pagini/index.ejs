@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+ <title>Shop Origami</title>
+
+ <meta name="description" content="Origami-Shop ofera origami de inalta calitate, hartie, produse din hartie si hartie calitativa cu optiunea de achizitie online si livrare prin curier.">
+    <meta name="keywords" content="modele, precizie, Shop Origami, instrumente, inima, dragoni, hartie, pasari, produse, origami">
+   
+    <%- include('../fragmente/head.ejs') %>
+</head>
+<body>
+    <a id="link-top" href="#top" aria-label="Înapoi la începutul paginii">
+        <span id="triunghi"></span>
+    </a>
+
+    <%- include('../fragmente/header.ejs') %>
+    <main class="grid-pagina">
+        
+        <section id="produse">
+
+    <div class="continut-produse">
+
+        <div class="text-produse">
+            <h2>Produse Origami</h2>
+
+            <p class="subtitlu-sectiune">
+                Figurine și materiale pentru arta origami
+            </p>
+
+            <p>
+                Magazinul <abbr title="Shop Origami">SO</abbr> nostru oferă
+                <strong>figurine origami</strong>,
+                <strong>hârtie origami</strong> și
+                <strong>cadouri origami</strong>.
+                Termenul <em>origami</em> provine din japoneză.
+            </p>
+
+            <blockquote>
+                „Arta origami transformă o simplă foaie de hârtie într-o operă de artă.”
+            </blockquote>
+
+            <article class="card-intern">
+                <h3>Figurine populare</h3>
+                <p>
+                    Una dintre cele mai <mark>cunoscute figurine</mark> este
+                    <dfn>tsuru</dfn>, pasărea tradițională realizată prin plierea hârtiei.
+                </p>
+            </article>
+
+            <aside class="card-intern">
+                <h3>Sfat pentru începători</h3>
+                <p>
+                    Dacă ești <em>pasionat</em> de origami, începe cu modele simple și
+                    exersează plieri precise pentru rezultate elegante.
+                </p>
+            </aside>
+
+            <p>
+                Un client a spus: <q>Produsele sunt incredibile!</q>
+            </p>
+            <p> Ip: <%- locals.ip %> </p>
+        </div>
+
+        <figure class="imagine-produse">
+            <picture>
+                <source srcset="/resurse/imagini/origami1-mic.png" media="(max-width: 600px)">
+                <source srcset="/resurse/imagini/origami1-mediu.png" media="(max-width: 1000px)">
+                <img src="/resurse/imagini/origami1-mare.png" alt="Figurină origami">
+            </picture>
+            <figcaption>Figurină origami realizată din hârtie colorată</figcaption>
+        </figure>
+
+    </div>
+
+</section>
+
+        <section id="magazin">
+            <h2>Produse populare</h2>
+
+            <div class="container-tabel">
+                <table class="tabel-origami">
+                    <caption>Produse vândute în magazin</caption>
+
+                    <thead>
+                        <tr>
+                            <th>Produs</th>
+                            <th>Preț</th>
+                            <th>Stoc</th>
+                            <th>Popularitate</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Pasăre Origami</td>
+                            <td>10 lei</td>
+                            <td>50</td>
+                            <td>★★★★★</td>
+                        </tr>
+                        <tr>
+                            <td>Dragon Origami</td>
+                            <td>20 lei</td>
+                            <td>30</td>
+                            <td>★★★★</td>
+                        </tr>
+                        <tr>
+                            <td>Floare Origami</td>
+                            <td>15 lei</td>
+                            <td>40</td>
+                            <td>★★★★</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Set hârtie origami</td>
+                            <td>100</td>
+                            <td>★★★★★</td>
+                        </tr>
+                        <tr>
+                            <td>Inimă Origami</td>
+                            <td>12 lei</td>
+                            <td>60</td>
+                            <td>★★★★★</td>
+                        </tr>
+                        <tr>
+                            <td>Stea Origami</td>
+                            <td>8 lei</td>
+                            <td>80</td>
+                            <td>★★★★</td>
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">Date actualizate 2026</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+        <section id="evenimente">
+            <h2>Evenimente Origami</h2>
+
+            <ul class="lista-evenimente">
+                <li>
+                    <time datetime="2026-04-05T12:00">5 aprilie 2026, ora 12:00</time>
+                    <b>Atelier Origami</b> — învățăm să realizăm figurine simple.
+                </li>
+                <li>
+                    <time datetime="2026-05-01T10:00">1 mai 2026, ora 10:00</time>
+                    <strong>Expoziție Origami</strong> — prezentare de creații handmade.
+                </li>
+            </ul>
+        </section>
+
+        <section id="faq">
+            <h2>Întrebări frecvente</h2>
+
+            <details>
+                <summary>Ce este origami?</summary>
+                <p>Origami este arta japoneză de pliere a hârtiei.</p>
+            </details>
+
+            <details>
+                <summary>Ce hârtie folosim?</summary>
+                <p>Se folosește hârtie specială pentru origami.</p>
+            </details>
+
+            <details>
+                <summary>Există modele pentru începători?</summary>
+                <p>Da, începătorii pot porni de la figurine simple.</p>
+            </details>
+
+            <details>
+                <summary>Pot folosi figurinele ca decor?</summary>
+                <p>Da, sunt perfecte pentru decor și cadouri.</p>
+            </details>
+        </section>
+
+        <section id="galerie">
+            <h2>Galerie Origami</h2>
+
+            <div class="galerie-origami">
+                <figure>
+                    <a href="/resurse/imagini/origami1-mare.png">
+                        <img src="/resurse/imagini/origami1.png" alt="Origami 1">
+                    </a>
+                    <figcaption>Model origami 1</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="/resurse/imagini/origami2.png" alt="Origami 2">
+                    <figcaption>Model origami 2</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="/resurse/imagini/origami3.png" alt="Origami 3">
+                    <figcaption>Model origami 3</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="/resurse/imagini/origami4.png" alt="Origami 4">
+                    <figcaption>Model origami 4</figcaption>
+                </figure>
+            </div>
+
+            <p>
+                <a href="/resurse/imagini/origami4.png" download>
+                    Descarcă un model origami
+                </a>
+            </p>
+        </section>
+
+        <section id="popularitate">
+            <h2>Popularitatea magazinului</h2>
+
+            <div class="indicator">
+                <p>Număr vizitatori</p>
+                <meter value="2" min="0" max="10" low="3" high="8" optimum="9"></meter>
+            </div>
+
+            <div class="indicator">
+                <p>Satisfacția clienților</p>
+                <meter value="9" min="0" max="10" low="3" high="8" optimum="9"></meter>
+            </div>
+        </section>
+
+        <section id="video">
+            <h2>Video Origami</h2>
+
+            <div class="container-iframe">
+                <div class="taburi-iframe">
+                    <a href="https://www.youtube.com/embed/NdC4NE-eT9E" target="ifr-video">Pasăre Origami</a>
+                    <a href="https://www.youtube.com/embed/QoM7FWQGn7U" target="ifr-video">Floare Origami</a>
+                    <a href="https://www.youtube.com/embed/kkf-kBHZIlE" target="ifr-video">Inimă Origami</a>
+                    <a href="https://www.youtube.com/embed/kUsxMXwCW8A" target="ifr-video">Dragon Origami</a>
+                </div>
+
+                <iframe
+    src="https://www.youtube.com/embed/kUsxMXwCW8A"
+    name="ifr-video"
+    title="Video Origami"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+</iframe>
+
+            </div>
+            <div class="video-vtt-box">
+    <h3>Videoclip cu subtitrări</h3>
+
+    <video
+        controls
+        preload="auto"
+        poster="/resurse/imagini/video-poster.png" 
+    >
+        <source src="/resurse/video/origami.mp4" type="video/mp4">
+        <source src="/resurse/video/origami.webm" type="video/webm">
+
+        <track
+            src="/resurse/vtt/subtitrari_ro.vtt"
+            kind="subtitles"
+            srclang="ro"
+            label="Română"
+            default
+        >
+
+        <track
+            src="/resurse/vtt/subtitrari_en.vtt"
+            kind="subtitles"
+            srclang="en"
+            label="English"
+        >
+
+        Browserul tău nu suportă elementul video.
+    </video>
+</div>
+        </section>
+
+        <section id="contact">
+            <h2>Resurse externe</h2>
+
+            <p>
+                Pentru mai multe informații:   
+                <a href="https://en.wikipedia.org/wiki/Origami" target="_blank" rel="noopener noreferrer">
+                    Wikipedia Origami
+                </a>
+            </p>
+        </section>
+    </main>
+
+    <%- include('../fragmente/footer.ejs') %>
+    <p id="banner-print">Acesta este un proiect școlar!</p>
+<div id="watermark"></div>
+<div id="absolut"></div>
+    <script src="index.js"></script>
+</body>
+</html>
