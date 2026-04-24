@@ -1,0 +1,25 @@
+{
+  "cale_galerie": "resurse/imagini",
+  "imagini": [
+    {
+      "fisier": "origami1.png",
+      "descriere": "Pasăre origami",
+      "luni": ["ianuarie", "martie", "mai", "iulie", "septembrie", "noiembrie"]
+    },
+    {
+      "fisier": "origami2.png",
+      "descriere": "Floare origami",
+      "luni": ["februarie", "aprilie", "iunie", "august", "octombrie", "decembrie"]
+    },
+    {
+      "fisier": "origami3.png",
+      "descriere": "Inimă origami",
+      "luni": ["ianuarie", "februarie", "iunie", "octombrie"]
+    },
+    {
+      "fisier": "origami4.png",
+      "descriere": "Dragon origami",
+      "luni": ["martie", "aprilie", "iulie", "noiembrie", "decembrie"]
+    }
+  ]
+}

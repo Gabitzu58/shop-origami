@@ -1,0 +1,17 @@
+{
+  "cale_galerie": "resurse/galerie_statica",
+  "imagini": [
+    { "cale_imagine": "Imaginea1.jpg", "titlu": "Origami 1", "descriere": "Model origami decorativ", "sfert_ora": 1 },
+    { "cale_imagine": "Imaginea2.jpg", "titlu": "Origami 2", "descriere": "Figurină realizată din hârtie", "sfert_ora": 1 },
+    { "cale_imagine": "Imaginea3.jpg", "titlu": "Origami 3", "descriere": "Model elegant cu plieri precise", "sfert_ora": 1 },
+    { "cale_imagine": "Imaginea4.jpg", "titlu": "Origami 4", "descriere": "Compoziție origami artistică", "sfert_ora": 1 },
+    { "cale_imagine": "Imaginea5.jpg", "titlu": "Origami 5", "descriere": "Model geometric din hârtie", "sfert_ora": 1 },
+    { "cale_imagine": "Imaginea6.jpg", "titlu": "Origami 6", "descriere": "Figurină colorată în stil japonez", "sfert_ora": 1 },
+    { "cale_imagine": "Imaginea7.jpg", "titlu": "Origami 7", "descriere": "Model complex pentru pasionați", "sfert_ora": 1 },
+    { "cale_imagine": "Imaginea8.jpg", "titlu": "Origami 8", "descriere": "Design decorativ de inspirație asiatică", "sfert_ora": 1 },
+    { "cale_imagine": "Imaginea9.jpg", "titlu": "Origami 9", "descriere": "Lucrare origami realizată manual", "sfert_ora": 1 },
+    { "cale_imagine": "Imaginea10.jpg", "titlu": "Origami 10", "descriere": "Formă stilizată din hârtie", "sfert_ora": 1 },
+    { "cale_imagine": "Imaginea11.jpg", "titlu": "Origami 11", "descriere": "Model expresiv și creativ", "sfert_ora": 1 },
+    { "cale_imagine": "Imaginea12.jpg", "titlu": "Origami 12", "descriere": "Figurină artistică pentru galerie", "sfert_ora": 1 }
+  ]
+}

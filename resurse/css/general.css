@@ -15,13 +15,13 @@ body{
     --culoare-hover: #fce7f3;
     --culoare-text: #3f3f46;
     --culoare-subtitlu: #6b7280;
-    --grosime-faq: 100%;
+    --culoare-link-vizitat: #7a1f5c;
 
     --padding-zona: 0.85rem;
     --spatiere-laterala: 7rem;
     --gap-grid: 1rem;
     --raza: 1rem;
-    --umbra: 0 0.35rem 1rem rgba(0,0,0,0.10);
+    --umbra: 0 0.35rem 1rem rgba(0, 0, 0, 0.10);
 
     margin: 0;
     padding-left: var(--spatiere-laterala);
@@ -33,64 +33,30 @@ body{
     color: var(--culoare-text);
     background-color: var(--culoare-fundal);
 }
-a:visited{
-    color: #7a1f5c;
-}
-main a[href^="http"]{
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2em;
-    white-space: nowrap;
+
+::selection{
+    background: var(--culoare-accent);
+    color: white;
 }
 
-main a[href^="http"]::before{
-    content: "↗";
-    font-size: 1.5em;
-    transition: color 0.3s ease;
+::-moz-selection{
+    background: var(--culoare-accent);
+    color: white;
 }
 
-main a[href^="http"]:hover::before{
-    color: var(--culoare-accent);
-}
-main a {
-    position: relative;
-    text-decoration: none;
-    color: var(--culoare-accent-inchis);
+/* =========================
+   ANIMATII
+========================= */
 
-    background-image: radial-gradient(
-        ellipse at center,
-        rgba(255, 0, 100, 0.4) 0%,
-        rgba(255, 0, 100, 0.4) 40%,
-        transparent 80%,
-        transparent 100%
-    );
-
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 0% 0%;
-
-   transition: background-size 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-main a:hover {
-    background-size: 100% 80%;
-}
-main a:active{
-    border: 2px solid var(--culoare-accent);
-}
 @keyframes puls{
-    0%{transform: scale(1);}
-    50%{transform: scale(1.25);}
-    100%{transform: scale(1);}
+    0%{ transform: scale(1); }
+    50%{ transform: scale(1.25); }
+    100%{ transform: scale(1); }
 }
 
 @keyframes rotatie{
-    from{transform: rotate(0deg);}
-    to{transform: rotate(360deg);}
-}
-
-.morisca{
-    color: var(--culoare-accent);
-    animation: rotatie 2s linear infinite;
+    from{ transform: rotate(0deg); }
+    to{ transform: rotate(360deg); }
 }
 
 .inima{
@@ -103,11 +69,181 @@ main a:active{
     transform: scale(1.2);
 }
 
-.figura{
-    justify-self: end;
-    align-self: start;
-    width: 200px;
+.morisca{
+    color: var(--culoare-accent);
+    animation: rotatie 2s linear infinite;
 }
+
+/* =========================
+   ZONE GENERALE
+========================= */
+
+main,
+header,
+footer{
+    border: 1px solid var(--culoare-border);
+    box-shadow: var(--umbra);
+    border-radius: var(--raza);
+    padding: var(--padding-zona);
+    margin-top: var(--gap-grid);
+    margin-bottom: var(--gap-grid);
+}
+
+header{
+    background: linear-gradient(135deg, var(--culoare-header), var(--culoare-hover));
+}
+
+footer{
+    background: linear-gradient(135deg, var(--culoare-hover), var(--culoare-footer));
+}
+
+.header-top{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.header-top h1{
+    margin: 0;
+    color: var(--culoare-accent-inchis);
+    font-size: 1.9rem;
+}
+
+.subtitlu-site{
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    color: var(--culoare-subtitlu);
+}
+
+h2,
+h3{
+    margin-top: 0;
+    color: var(--culoare-accent-inchis);
+}
+
+h2{
+    font-size: 1.35rem;
+}
+
+h3{
+    font-size: 1.1rem;
+}
+
+/* =========================
+   HR STILIZAT
+========================= */
+
+.hr-origami{
+    border: none;
+    width: 80%;
+    height: 1.2rem;
+    margin: 2rem auto;
+    background:
+        radial-gradient(circle, var(--culoare-accent) 0 35%, transparent 40%) center top / 1.2rem 1.2rem no-repeat,
+        linear-gradient(
+            to right,
+            transparent 0%,
+            var(--culoare-accent-inchis) 20%,
+            var(--culoare-accent) 50%,
+            var(--culoare-accent-inchis) 80%,
+            transparent 100%
+        ) center calc(100% - 0.2rem) / 100% 0.22rem no-repeat;
+}
+
+/* =========================
+   LINKURI
+========================= */
+
+main a{
+    position: relative;
+    text-decoration: none;
+    color: var(--culoare-accent-inchis);
+    background-image: radial-gradient(
+        ellipse at center,
+        rgba(255, 0, 100, 0.4) 0%,
+        rgba(255, 0, 100, 0.4) 40%,
+        transparent 80%,
+        transparent 100%
+    );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 0% 0%;
+    transition: background-size 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+main a:hover{
+    background-size: 100% 80%;
+}
+
+main a:active{
+    border: 2px solid var(--culoare-accent);
+}
+
+main a:visited{
+    color: var(--culoare-link-vizitat);
+}
+
+main a[href^="http"]{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    white-space: nowrap;
+}
+
+main a[href^="http"]::after{
+    content: "↗";
+    font-size: 1.5em;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+main a[href^="http"]:hover::after{
+    color: var(--culoare-accent);
+}
+
+/* exceptii pentru butoane/linkuri speciale */
+
+main a.btn,
+main a.btn:hover,
+.titlu-galerie-link,
+.titlu-galerie-link:hover,
+.link-descarcare-model,
+.link-descarcare-model:hover{
+    background-image: none !important;
+    background-size: 0 0 !important;
+}
+
+main a.btn{
+    text-decoration: none !important;
+}
+
+.titlu-galerie-link{
+    color: var(--culoare-accent-inchis) !important;
+    text-decoration: none;
+}
+
+.titlu-galerie-link:hover{
+    color: var(--culoare-accent) !important;
+}
+
+.link-descarcare-model{
+    color: var(--culoare-accent-inchis) !important;
+    text-decoration: none;
+    font-weight: 500;
+    border: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    display: inline !important;
+}
+
+.link-descarcare-model:hover{
+    color: var(--culoare-accent) !important;
+    text-decoration: underline;
+    transform: none !important;
+}
+
+/* =========================
+   GRID PAGINA
+========================= */
 
 .grid-pagina{
     display: grid;
@@ -129,35 +265,16 @@ main a:active{
     background-color: var(--culoare-zona);
 }
 
-#produse{
-    grid-area: z1;
-}
+#produse{ grid-area: z1; }
+#magazin{ grid-area: z2; }
+#evenimente{ grid-area: z3; }
+#galerie{ grid-area: z5; }
+#popularitate{ grid-area: z6; }
+#contact{ grid-area: z7; }
 
-.continut-produse{
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 2rem;
-    align-items: start;
-}
-
-.imagine-produse{
-    margin: 0;
-    justify-self: end;
-    margin-right: 1rem;
-}
-
-.imagine-produse img{
-    width: 100%;
-    max-width: 400px;
-    border-radius: var(--raza);
-}
-
-#magazin{
-    grid-area: z2;
-}
-
-#evenimente{
-    grid-area: z3;
+#video{
+    grid-area: z8;
+    overflow: hidden;
 }
 
 #faq{
@@ -166,6 +283,185 @@ main a:active{
     gap: 1rem;
     grid-column: span 2;
 }
+
+/* =========================
+   SECTIUNEA PRODUSE
+========================= */
+
+.continut-produse{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.text-produse > *{
+    break-inside: avoid;
+}
+
+.imagine-produse{
+    margin: 0;
+    justify-self: end;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.duotone-produse{
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    border-radius: var(--raza);
+    overflow: hidden;
+    background-image: url("/resurse/imagini/origami1-mare.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    isolation: isolate;
+    box-shadow: var(--umbra);
+    transition: filter 0.8s ease;
+}
+
+.duotone-produse::before,
+.duotone-produse::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.duotone-produse::before{
+    background-color: #57c7ff;
+    mix-blend-mode: lighten;
+}
+
+.duotone-produse::after{
+    background-color: #3b1fa6;
+    mix-blend-mode: multiply;
+}
+
+.duotone-produse:hover{
+    filter: grayscale(1);
+}
+
+/* reflexie text */
+
+.reflexie-box{
+    position: relative;
+    display: inline-block;
+    margin-top: 0.9rem;
+    padding-bottom: 2.5rem;
+    text-align: center;
+}
+
+#text{
+    position: relative;
+    display: block;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.2;
+    color: black;
+    z-index: 2;
+}
+
+#text-reflectat{
+    position: absolute;
+    left: 0;
+    top: calc(100% - 1px);
+    width: 100%;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.2;
+    color: rgba(45, 45, 45, 0.9);
+    transform-origin: top center;
+    transform: scaleY(-1);
+    opacity: 0.9;
+    pointer-events: none;
+    transition: transform 0.35s ease, filter 0.35s ease, opacity 0.35s ease;
+}
+
+.reflexie-box:hover #text-reflectat{
+    transform: scaleY(-1.3);
+    opacity: 1;
+    filter: blur(0.1px);
+}
+
+/* =========================
+   GALERIE STATICA - CERINTA
+========================= */
+
+#galerie-statica{
+    width: 100%;
+    counter-reset: nr-imagini;
+}
+
+#galerie-statica .grid-galerie{
+    display: grid;
+    grid-template-columns: repeat(3, 180px);
+    grid-template-areas:
+        "g1  g2  g3"
+        "g4  .   g5"
+        "g6  .   g7"
+        "g8  g9  g10";
+    gap: 1rem;
+    justify-content: center;
+    align-items: start;
+}
+
+#galerie-statica figure{
+    margin: 0;
+    text-align: center;
+    counter-increment: nr-imagini;
+}
+
+#galerie-statica figure:nth-child(1){ grid-area: g1; }
+#galerie-statica figure:nth-child(2){ grid-area: g2; }
+#galerie-statica figure:nth-child(3){ grid-area: g3; }
+#galerie-statica figure:nth-child(4){ grid-area: g4; }
+#galerie-statica figure:nth-child(5){ grid-area: g5; }
+#galerie-statica figure:nth-child(6){ grid-area: g6; }
+#galerie-statica figure:nth-child(7){ grid-area: g7; }
+#galerie-statica figure:nth-child(8){ grid-area: g8; }
+#galerie-statica figure:nth-child(9){ grid-area: g9; }
+#galerie-statica figure:nth-child(10){ grid-area: g10; }
+
+#galerie-statica img{
+    display: block;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: 0 solid transparent;
+    transition:
+        transform 1.5s ease,
+        border-width 1.5s ease,
+        border-color 1.5s ease;
+}
+
+#galerie-statica figure:hover img{
+    transform: scale(1.25) rotate(-10deg);
+    border-width: 4px;
+    border-style: solid;
+    border-color: var(--culoare-accent);
+}
+
+#galerie-statica figcaption{
+    margin-top: 0.4rem;
+}
+
+#galerie-statica figcaption::before{
+    content: counter(nr-imagini, upper-roman) ". ";
+    font-weight: bold;
+}
+
+/* =========================
+   FAQ
+========================= */
 
 #faq details{
     border: 2px solid #f04d86;
@@ -221,89 +517,59 @@ main a:active{
     color: #2f2f39;
 }
 
-#galerie{
-    grid-area: z5;
-}
-
-#popularitate{
-    grid-area: z6;
-}
-
-#contact{
-    grid-area: z7;
-}
-
-#video{
-    grid-area: z8;
-    overflow: hidden;
-}
-main,
-header,
-footer{
-    border: 1px solid var(--culoare-border);
-    box-shadow: var(--umbra);
-    border-radius: var(--raza);
-    padding: var(--padding-zona);
-    margin-top: var(--gap-grid);
-    margin-bottom: var(--gap-grid);
-}
-
-header{
-    background: linear-gradient(135deg, var(--culoare-header), var(--culoare-hover));
-}
-
-footer{
-    background: linear-gradient(135deg, var(--culoare-hover), var(--culoare-footer));
-}
-
-.header-top{
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.header-top h1{
-    margin: 0;
-    color: var(--culoare-accent-inchis);
-    font-size: 1.9rem;
-}
-
-.subtitlu-site{
-    margin-top: 0.5rem;
-    margin-bottom: 0;
-    color: var(--culoare-subtitlu);
-}
-
-h2,
-h3{
-    margin-top: 0;
-    color: var(--culoare-accent-inchis);
-}
-
-h2{
-    font-size: 1.35rem;
-}
-
-h3{
-    font-size: 1.1rem;
-}
+/* =========================
+   VIDEO YOUTUBE
+========================= */
 
 .container-iframe{
     display: flex;
     gap: 1rem;
     align-items: flex-start;
-    width: 100%;
 }
 
 .taburi-iframe{
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    flex: 0 0 12rem; /* coloană fixă */
+    flex: 0 0 220px;
+    align-items: stretch;
+}
+
+.taburi-iframe a::after{
+    content: none !important;
+}
+
+.taburi-iframe a[href^="http"]{
+    gap: 0;
+    white-space: normal;
+}
+
+.taburi-iframe a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: white;
+    background-color: var(--culoare-accent);
+    border: 1px solid var(--culoare-accent-inchis);
+    border-radius: 0.8rem 0 0 0.8rem;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.taburi-iframe a:hover{
+    background-color: var(--culoare-accent-inchis);
+    transform: translateX(0.2rem);
 }
 
 .container-iframe iframe{
-    flex: 1;              /* ocupă restul spațiului */
-    min-width: 0;         /* CRUCIAL pentru flex */
+    flex: 1;
+    min-width: 0;
     width: 100%;
     max-width: 100%;
     height: 315px;
@@ -312,34 +578,54 @@ h3{
     box-sizing: border-box;
     display: block;
 }
-.taburi-iframe a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 2.5rem;
-    padding: 0.5rem;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.85rem;
+
+/* =========================
+   VIDEO LOCAL + VTT
+========================= */
+
+.video-vtt-box{
+    margin-top: 2rem;
+    width: 100%;
     text-align: center;
+}
+
+.video-vtt-box h3{
+    margin-bottom: 1rem;
+    color: var(--culoare-accent-inchis);
+}
+
+.video-vtt-box video{
+    width: 80%;
+    min-width: 280px;
+    max-width: 900px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 2px solid var(--culoare-border);
+    border-radius: var(--raza);
+    box-shadow: var(--umbra);
+    background-color: black;
+}
+
+video::cue{
+    background: rgba(157, 23, 77, 0.85);
     color: white;
-    background-color: var(--culoare-accent);
-    border: 1px solid var(--culoare-accent-inchis);
-    border-radius: 0.8rem 0 0 0.8rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-sizing: border-box;
+    font-size: 1rem;
+    text-align: left;
 }
 
-.taburi-iframe a:hover{
-    background-color: var(--culoare-accent-inchis);
-    transform: translateX(0.2rem);
+video::cue(b){
+    color: white;
+    font-weight: bold;
 }
 
+/* =========================
+   TABEL
+========================= */
 
 .container-tabel{
     width: 100%;
     overflow-x: auto;
-    
 }
 
 .tabel-origami{
@@ -349,7 +635,6 @@ h3{
     text-align: center;
     background-color: var(--culoare-zona);
     border: 2px solid var(--culoare-border);
-    
 }
 
 .tabel-origami caption{
@@ -390,6 +675,25 @@ h3{
     transition: background-color 0.3s ease;
 }
 
+/* =========================
+   GALERIE VECHE
+========================= */
+
+.galerie-origami figure{
+    text-align: center;
+}
+
+.galerie-origami img{
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* =========================
+   LINK TOP
+========================= */
+
 #link-top{
     position: fixed;
     right: 1.5rem;
@@ -401,7 +705,7 @@ h3{
     border-left: 0.3rem solid var(--culoare-accent);
     border-right: 0.3rem solid var(--culoare-accent);
     border-radius: 1rem;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(3px);
     opacity: 0.7;
     transition: 0.3s ease;
@@ -410,7 +714,7 @@ h3{
 
 #link-top:hover{
     opacity: 1;
-    background-color: rgba(255,255,255,0.9);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 #triunghi{
@@ -451,59 +755,17 @@ h3{
     opacity: 1;
 }
 
-.galerie-origami figure{
-    text-align: center;
-}
+/* =========================
+   RESPONSIVE <= 1000px
+========================= */
 
-.galerie-origami img{
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-}
-.video-vtt-box{
-    margin-top: 2rem;
-    width: 100%;
-    text-align: center;
-}
-
-.video-vtt-box h3{
-    margin-bottom: 1rem;
-    color: var(--culoare-accent-inchis);
-}
-
-.video-vtt-box video{
-    width: 80%;
-    min-width: 280px;
-    max-width: 900px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border: 2px solid var(--culoare-border);
-    border-radius: var(--raza);
-    box-shadow: var(--umbra);
-    background-color: black;
-}
-
-video::cue{
-    background: rgba(157, 23, 77, 0.85);
-    color: white;
-    font-size: 1rem;
-    text-align: left;
-}
-
-video::cue(b){
-    color: white;
-    font-weight: bold;
-}
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px){
     body{
         --spatiere-laterala: 1rem;
         --gap-grid: 1rem;
     }
 
     .grid-pagina{
-        display: grid;
         grid-template-columns: 1fr;
         grid-template-areas:
             "z1"
@@ -532,12 +794,16 @@ video::cue(b){
     }
 
     .imagine-produse{
+        margin: 0;
         justify-self: center;
-        margin-right: 0;
+        text-align: center;
+    }
+
+    .duotone-produse{
+        background-image: url("/resurse/imagini/origami1-mediu.png");
     }
 
     .container-iframe{
-        display: flex;
         flex-direction: column;
         gap: 1rem;
         align-items: stretch;
@@ -546,32 +812,34 @@ video::cue(b){
     .taburi-iframe{
         width: 100%;
         min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
     }
 
     .taburi-iframe a{
-        display: flex;
-        align-items: center;
-        justify-content: center;
         width: 100%;
         min-height: 3rem;
         padding: 0.9rem 1rem;
-        text-align: center;
         border-radius: 999px;
-        box-sizing: border-box;
     }
 
-   .container-iframe iframe{
-    width: 100%;
-    aspect-ratio: 1 / 1;   /* 🔥 asta îl face pătrat */
-    border: 2px solid var(--culoare-border);
-    border-radius: var(--raza);
-    box-sizing: border-box;
-    display: block;
+    .container-iframe iframe{
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    #galerie-statica .grid-galerie{
+        grid-template-columns: repeat(2, 180px);
+        grid-template-areas: none;
+    }
+
+    #galerie-statica figure{
+        grid-area: auto !important;
+    }
 }
-}
+
+/* =========================
+   RESPONSIVE <= 700px
+========================= */
+
 @media screen and (max-width: 700px){
     body{
         --spatiere-laterala: 1rem;
@@ -582,9 +850,11 @@ video::cue(b){
         display: block;
     }
 
-    
+    .duotone-produse{
+        background-image: url("/resurse/imagini/origami1-mic.png");
+    }
+
     .container-iframe{
-        display: flex;
         flex-direction: column;
         gap: 1rem;
         align-items: stretch;
@@ -603,10 +873,21 @@ video::cue(b){
         height: 220px;
         display: block;
         box-sizing: border-box;
-        aspect-ratio: 1/1;
+        aspect-ratio: 1 / 1;
     }
-     .video-vtt-box video{
+
+    .video-vtt-box video{
         width: 100%;
         min-width: 0;
+    }
+
+    #galerie-statica .grid-galerie{
+        grid-template-columns: 1fr;
+    }
+
+    #galerie-statica img{
+        width: 220px;
+        height: 220px;
+        max-width: 100%;
     }
 }

@@ -161,4 +161,25 @@ nav {
   transition-delay: 0.3s;
 }
 
-/*# sourceMappingURL=nav.css.map */
+.meniu-principal ul a.link-bootstrap-meniu{
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: row !important;
+  gap: 0.4rem;
+
+  width: 100% !important;
+  height: auto !important;
+  min-height: 2.2rem;
+
+  padding: 0.4rem 0.65rem !important;
+  padding-left: 0.65rem !important;
+
+  color: white !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+
+  border-radius: 0.5rem !important;
+  box-sizing: border-box;
+}
